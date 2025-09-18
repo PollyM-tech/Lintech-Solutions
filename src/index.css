@@ -1,0 +1,15 @@
+:root {
+    --primary-blue: #0B1C4D;
+    --primary-orange: #F57C00; 
+    --light-bg: #F4F4F4; 
+    --dark-text: #333333; 
+    --light-text: #6C757D;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+}
