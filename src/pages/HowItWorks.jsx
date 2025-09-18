@@ -1,7 +1,7 @@
 function HowItWorks() {
   return (
     <div>
-      {/* Payment Instructions */}
+    
       <section className="py-5 bg-light">
         <div className="container">
           <h2 className="text-center mb-5 section-title">How to Pay</h2>
@@ -46,7 +46,7 @@ function HowItWorks() {
             ))}
           </div>
 
-          {/* Disclaimer */}
+
           <div className="alert alert-warning mt-4 text-center">
             <strong>Disclaimer:</strong> Please ensure your account number
             (Order Number) is correct to avoid crediting the wrong account. Send
@@ -56,7 +56,7 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* What to Expect Section */}
+
       <section className="py-5">
         <div className="container">
           <h2 className="text-center mb-5 section-title">
@@ -83,7 +83,7 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* After Payment Info */}
+
       <section className="py-5 bg-light">
         <div className="container text-center">
           <h2 className="section-title">What Happens After Payment?</h2>

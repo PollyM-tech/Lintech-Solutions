@@ -20,7 +20,7 @@ function Header() {
             />
           </a>
 
-          {/* Mobile menu button */}
+        
           <button
             className="navbar-toggler"
             type="button"
@@ -30,7 +30,7 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Navigation menu */}
+       
           <div
             className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}
           >
@@ -62,7 +62,7 @@ function Header() {
               </li>
             </ul>
 
-            {/* Contact info */}
+          
             <div className="d-flex flex-column flex-lg-row align-items-center gap-3">
               <a
                 href="tel:+254717371134"

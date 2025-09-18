@@ -42,7 +42,7 @@ function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
+  
       <section style={{ textAlign: "center", padding: "4rem 0" }}>
         <h1
           style={{
@@ -136,7 +136,6 @@ function Home() {
         </div>
       </section>
 
-      {/* How It Works Steps */}
       <section style={{ padding: "4rem 0", backgroundColor: "#f8f9fa" }}>
         <h2
           style={{
@@ -238,7 +237,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
       <section style={{ padding: "4rem 0", textAlign: "center" }}>
         <h2 style={{ marginBottom: "1rem", fontFamily: "Poppins, sans-serif" }}>
           Ready for Better Internet?

@@ -6,7 +6,6 @@ function Footer() {
     >
       <div className="container">
         <div className="row">
-          {/* Company Info */}
           <div className="col-md-4 mb-3">
             <p className="mb-1">
               Providing reliable, high-speed internet to Juja and Kenyatta Road
@@ -17,7 +16,7 @@ function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+        
           <div className="col-md-2 mb-3">
             <h6 className="fw-bold mb-2">Quick Links</h6>
             <ul className="list-unstyled">
@@ -56,7 +55,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact Information */}
+        
           <div className="col-md-3 mb-3">
             <h6 className="fw-bold mb-2">Contact Us</h6>
             <ul className="list-unstyled mb-0">
@@ -94,7 +93,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Payment Information */}
+         
           <div className="col-md-3 mb-3">
             <h6 className="fw-bold mb-2">Payment Details</h6>
             <p className="small mb-0">
@@ -109,7 +108,7 @@ function Footer() {
 
         <hr className="my-3" style={{ borderColor: "rgba(255,255,255,0.2)" }} />
 
-        {/* Copyright */}
+
         <div className="row align-items-center">
           <div className="col-md-6">
             <p className="mb-0 small">
