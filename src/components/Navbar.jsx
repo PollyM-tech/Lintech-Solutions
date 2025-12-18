@@ -9,67 +9,78 @@ function Navbar() {
   ];
 
   return (
-    <>
-      <nav
-        className="navbar navbar-expand-lg shadow-sm fixed-top"
-        style={{ backgroundColor: "var(--light-bg)", zIndex: 1050 }}
-      >
-        <div className="container">
-          {/* Logo */}
-          <NavLink className="navbar-brand" to="/">
-            <img
-              src="/logo.png"
-              alt="Lintech Telecom"
+    <nav className="navbar navbar-expand-lg fixed-top lintech-navbar">
+      <div className="container">
+        <NavLink
+          className="navbar-brand d-flex align-items-center gap-2"
+          to="/"
+        >
+          <img src="/logo.png" alt="Lintech Telecom" className="lintech-logo" />
+          <div className="d-none d-sm-block">
+            <div
               style={{
-                width: "80px",
-                height: "80px",
-                objectFit: "cover",
-                borderRadius: "50%",
-                border: "2px solid #0b1c4d",
-                transition: "transform 0.3s ease",
+                fontWeight: 900,
+                color: "var(--primary-blue)",
+                lineHeight: 1,
               }}
-              className="logo-hover"
-            />
-          </NavLink>
+            >
+              Lintech
+            </div>
+            <div
+              style={{ fontSize: 12, color: "var(--muted)", lineHeight: 1.2 }}
+            >
+              Fast WiFi • Juja & Kenyatta Road
+            </div>
+          </div>
+        </NavLink>
 
-          {/* Mobile toggle */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#lintechNav"
+          aria-controls="lintechNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
 
-          {/* Links */}
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              {links.map((link) => (
-                <li className="nav-item" key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    className="nav-link"
-                    style={({ isActive }) => ({
-                      color: isActive ? "#ff7a00" : "var(--primary-blue)",
-                      transition: "color 0.3s",
-                    })}
-                  >
-                    {link.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+        <div className="collapse navbar-collapse" id="lintechNav">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            {links.map((l) => (
+              <li className="nav-item" key={l.to}>
+                <NavLink
+                  to={l.to}
+                  className={({ isActive }) =>
+                    `nav-link px-lg-3 ${isActive ? "active" : ""}`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          <div className="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
+            <a href="tel:+254717371134" className="btn btn-outline-blue btn-sm">
+              Call
+            </a>
+            <a
+              href="https://wa.me/254717371134"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp btn-sm"
+            >
+              WhatsApp
+            </a>
+            <a href="/contact" className="btn btn-orange btn-sm">
+              Get Quote
+            </a>
           </div>
         </div>
-      </nav>
-
-      {/* Spacer so content does not go under fixed navbar */}
-      <div style={{ height: "100px" }}></div>
-    </>
+      </div>
+    </nav>
   );
 }
 

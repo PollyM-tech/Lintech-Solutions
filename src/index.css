@@ -1,15 +1,163 @@
 :root {
-    --primary-blue: #0B1C4D;
-    --primary-orange: #F57C00; 
-    --light-bg: #F4F4F4; 
-    --dark-text: #333333; 
-    --light-text: #6C757D;
+  --primary-blue: #0b1c4d;
+  --primary-orange: #f57c00;
+  --whatsapp: #25d366;
+
+  --text: #0f172a;
+  --muted: #64748b;
+  --light-bg: #ffffff;
+  --soft-bg: #f6f7fb;
+  --border: rgba(15, 23, 42, 0.08);
+
+  --nav-height: 76px;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+  --shadow-sm: 0 6px 16px rgba(2, 6, 23, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--light-bg);
-    color: var(--dark-text);
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--soft-bg);
+  padding-top: var(--nav-height); /* ✅ correct fixed navbar offset */
+}
+
+a { text-decoration: none; }
+
+.container {
+  max-width: 1120px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-blue);
+}
+
+.section-subtitle {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.card-soft {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  background: var(--light-bg);
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.btn-orange {
+  background: var(--primary-orange) !important;
+  color: white !important;
+  border: none !important;
+}
+.btn-orange:hover {
+  filter: brightness(0.95);
+}
+
+.btn-outline-blue {
+  border: 1px solid var(--primary-blue) !important;
+  color: var(--primary-blue) !important;
+  background: transparent !important;
+}
+.btn-outline-blue:hover {
+  background: var(--primary-blue) !important;
+  color: #fff !important;
+}
+
+.btn-whatsapp {
+  background: var(--whatsapp) !important;
+  color: white !important;
+  border: none !important;
+}
+.btn-whatsapp:hover {
+  filter: brightness(0.95);
+}
+
+.link-muted {
+  color: rgba(255,255,255,0.85);
+}
+.link-muted:hover {
+  color: #fff;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* Navbar (premium + compact) */
+.lintech-navbar {
+  min-height: var(--nav-height);
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.lintech-navbar .navbar-brand {
+  padding: 0 !important;
+}
+
+.lintech-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 2px solid var(--primary-blue);
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.lintech-logo:hover { transform: scale(1.06); }
+
+.lintech-navbar .nav-link {
+  font-weight: 700;
+  color: var(--primary-blue) !important;
+  opacity: 0.85;
+}
+.lintech-navbar .nav-link:hover {
+  opacity: 1;
+}
+.lintech-navbar .nav-link.active {
+  color: var(--primary-orange) !important;
+  opacity: 1;
+}
+
+/* Hero */
+.hero {
+  background:
+    radial-gradient(1000px 500px at 10% 10%, rgba(245, 124, 0, 0.18), transparent 60%),
+    radial-gradient(900px 450px at 90% 0%, rgba(11, 28, 77, 0.14), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%);
+}
+
+.hero h1 {
+  letter-spacing: -0.03em;
+}
+
+/* FAQ accordion nicer */
+.accordion-button:focus {
+  box-shadow: none;
 }

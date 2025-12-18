@@ -1,76 +1,11 @@
-
-:root {
-  --primary: #0b1c4d;
-  --secondary: #f57c00;
-  --whatsapp: #25d366;
+/* Optional extra helpers */
+.icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(245, 124, 0, 0.12);
+  color: var(--primary-orange);
+  font-weight: 900;
 }
-
-.hero-section {
-  background: #f4f4f4;
-}
-.hero-title {
-  color: var(--primary);
-}
-.highlight-text {
-  color: var(--secondary);
-}
-
-.section-title {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.benefit-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-.benefit-icon {
-  color: var(--secondary);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.step-number {
-  color: var(--secondary);
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.cta-section {
-  background: var(--primary);
-  color: white;
-}
-
-.btn-orange {
-  background: var(--secondary);
-  color: white;
-  border: none;
-  transition: background 0.2s ease;
-}
-.btn-orange:hover {
-  background: #e96c00;
-  color: white;
-}
-.btn-whatsapp {
-  background: var(--whatsapp);
-  color: white;
-  border: none;
-  transition: background 0.2s ease;
-}
-.btn-whatsapp:hover {
-  background: #1ebe5c;
-  color: white;
-}
-.logo-hover:hover {
-  transform: scale(1.1);
-}
-.nav-link {
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #0b1c4d; }

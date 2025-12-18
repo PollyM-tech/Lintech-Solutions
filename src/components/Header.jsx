@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className="header">
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top navbar-compact">
         <div className="container">
           {/* Logo */}
           <a className="navbar-brand" href="/">
@@ -20,7 +20,6 @@ function Header() {
             />
           </a>
 
-        
           <button
             className="navbar-toggler"
             type="button"
@@ -30,7 +29,6 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-       
           <div
             className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}
           >
@@ -62,7 +60,6 @@ function Header() {
               </li>
             </ul>
 
-          
             <div className="d-flex flex-column flex-lg-row align-items-center gap-3">
               <a
                 href="tel:+254717371134"

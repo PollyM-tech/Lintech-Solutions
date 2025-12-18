@@ -1,112 +1,100 @@
 function HowItWorks() {
-  return (
-    <div>
-    
-      <section className="py-5 bg-light">
-        <div className="container">
-          <h2 className="text-center mb-5 section-title">How to Pay</h2>
-          <p className="text-center lead mb-4">
-            Renew your subscription seamlessly in just a few steps. Our
-            automated system will activate your connection upon payment
-            confirmation, usually within minutes.
-          </p>
+  const steps = [
+    {
+      title: "Check Coverage",
+      text: "Confirm we serve your area in Juja or Kenyatta Road.",
+    },
+    {
+      title: "Talk to Us",
+      text: "Call/WhatsApp for advice and the best plan for your needs.",
+    },
+    {
+      title: "Installation",
+      text: "We install and test the connection for stable performance.",
+    },
+    {
+      title: "Pay & Activate",
+      text: "Pay via M-Pesa. Activation is confirmed quickly.",
+    },
+  ];
 
-          <div className="row text-center">
-            {[
-              {
-                icon: "fa-mobile-alt",
-                step: "Go to Lipa Na M-Pesa on your phone",
-              },
-              { icon: "fa-list", step: "Select Paybill" },
-              {
-                icon: "fa-briefcase",
-                step: "Enter Business Number: 4125123",
-              },
-              {
-                icon: "fa-hashtag",
-                step: "Enter Account Number: Your Lintech Order Number (e.g., LT-1054)",
-              },
-              { icon: "fa-money-bill-wave", step: "Enter the Amount" },
-              { icon: "fa-lock", step: "Enter your M-Pesa PIN and send" },
-              {
-                icon: "fa-sms",
-                step: "You will receive an M-Pesa confirmation SMS",
-              },
-            ].map((item, i) => (
-              <div key={i} className="col-md-4 mb-4">
-                <div className="card h-100 border-0 shadow-sm benefit-card">
-                  <div className="card-body">
-                    <div className="benefit-icon">
-                      <i className={`fas ${item.icon}`}></i>
+  const paySteps = [
+    "Go to Lipa Na M-Pesa",
+    "Select Paybill",
+    "Enter Business No:",
+    "Account No: Your Order Number",
+    "Enter Amount",
+    "Enter your M-Pesa PIN and send",
+    "You will receive an M-Pesa confirmation SMS",
+  ];
+
+  return (
+    <>
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-4">
+            <h2 className="section-title">How it works</h2>
+            <p className="section-subtitle mx-auto">
+              From inquiry to installation and activation — simple and fast.
+            </p>
+          </div>
+
+          <div className="row g-4">
+            {steps.map((s) => (
+              <div className="col-md-6 col-lg-3" key={s.title}>
+                <div className="card-soft p-4 h-100">
+                  <div className="icon-circle mb-3">{s.icon}</div>
+                  <h5
+                    className="fw-bold"
+                    style={{ color: "var(--primary-blue)" }}
+                  >
+                    {s.title}
+                  </h5>
+                  <p className="mb-0" style={{ color: "var(--muted)" }}>
+                    {s.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ background: "#fff" }}>
+        <div className="container">
+          <div className="text-center mb-4">
+            <h2 className="section-title">How to pay (M-Pesa)</h2>
+            <p className="section-subtitle mx-auto">
+              Renew your subscription quickly. Activation is usually within
+              minutes after confirmation.
+            </p>
+          </div>
+
+          <div className="row g-4">
+            {paySteps.map((t, i) => (
+              <div className="col-md-4" key={t}>
+                <div className="card-soft p-4 h-100">
+                  <div className="d-flex align-items-center gap-3">
+                    <div className="icon-circle">{i + 1}</div>
+                    <div
+                      className="fw-bold"
+                      style={{ color: "var(--primary-blue)" }}
+                    >
+                      {t}
                     </div>
-                    <p className="fw-bold">{item.step}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-
           <div className="alert alert-warning mt-4 text-center">
-            <strong>Disclaimer:</strong> Please ensure your account number
-            (Order Number) is correct to avoid crediting the wrong account. Send
-            the confirmation SMS/WhatsApp message to{" "}
-            <strong>0717 371 134</strong> for instant activation.
+            <b>Important:</b> Ensure your Account Number (Order Number) is
+            correct. If delayed beyond 30 minutes, call <b>+254 717 371 134</b>.
           </div>
         </div>
       </section>
-
-
-      <section className="py-5">
-        <div className="container">
-          <h2 className="text-center mb-5 section-title">
-            Things to Expect After Launch
-          </h2>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              <i className="fas fa-phone text-secondary me-2"></i> Expect calls
-              & WhatsApp messages from customers asking about plans.
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-question-circle text-secondary me-2"></i>{" "}
-              Messages like “Where is my activation?” after payment.
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-headset text-secondary me-2"></i> Requests
-              for technical support.
-            </li>
-            <li className="list-group-item">
-              <i className="fas fa-eye text-secondary me-2"></i> Competitors
-              will visit your site — a good sign you’re on the map!
-            </li>
-          </ul>
-        </div>
-      </section>
-
-
-      <section className="py-5 bg-light">
-        <div className="container text-center">
-          <h2 className="section-title">What Happens After Payment?</h2>
-          <p className="mt-3">
-            Your payment is processed <strong>automatically</strong>. Please
-            allow up to <strong>15 minutes</strong> for your connection to be
-            restored. There is no need to call us for activation.
-          </p>
-          <p className="mt-3">
-            <strong>Experiencing a delay?</strong> If it’s been over{" "}
-            <strong>30 minutes</strong>, please call us on{" "}
-            <a
-              href="tel:+254717371134"
-              className="text-decoration-none fw-bold"
-              style={{ color: "var(--secondary)" }}
-            >
-              0717 371 134
-            </a>{" "}
-            for immediate assistance.
-          </p>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }
 
