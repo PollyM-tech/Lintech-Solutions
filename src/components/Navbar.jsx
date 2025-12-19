@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const links = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
@@ -8,12 +11,22 @@ function Navbar() {
     { to: "/contact", label: "Contact" },
   ];
 
+  const closeMenu = () => setOpen(false);
+
+  // Optional: close menu whenever route changes (extra safety)
+  useEffect(() => {
+    // when user clicks back/forward or nav changes, close
+    closeMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.location.pathname]);
+
   return (
     <nav className="navbar navbar-expand-lg fixed-top lintech-navbar">
       <div className="container">
         <NavLink
           className="navbar-brand d-flex align-items-center gap-2"
           to="/"
+          onClick={closeMenu}
         >
           <img src="/logo.png" alt="Lintech Telecom" className="lintech-logo" />
           <div className="d-none d-sm-block">
@@ -37,21 +50,23 @@ function Navbar() {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#lintechNav"
-          aria-controls="lintechNav"
-          aria-expanded="false"
           aria-label="Toggle navigation"
+          aria-expanded={open ? "true" : "false"}
+          onClick={() => setOpen((v) => !v)}
         >
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className="collapse navbar-collapse" id="lintechNav">
+        <div
+          className={`collapse navbar-collapse ${open ? "show" : ""}`}
+          id="lintechNav"
+        >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
             {links.map((l) => (
               <li className="nav-item" key={l.to}>
                 <NavLink
                   to={l.to}
+                  onClick={closeMenu} // ✅ closes menu after click
                   className={({ isActive }) =>
                     `nav-link px-lg-3 ${isActive ? "active" : ""}`
                   }
@@ -63,7 +78,11 @@ function Navbar() {
           </ul>
 
           <div className="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
-            <a href="tel:+254717371134" className="btn btn-outline-blue btn-sm">
+            <a
+              href="tel:+254717371134"
+              className="btn btn-outline-blue btn-sm"
+              onClick={closeMenu}
+            >
               Call
             </a>
             <a
@@ -71,12 +90,17 @@ function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-whatsapp btn-sm"
+              onClick={closeMenu}
             >
               WhatsApp
             </a>
-            <a href="/contact" className="btn btn-orange btn-sm">
+            <NavLink
+              to="/contact"
+              className="btn btn-orange btn-sm"
+              onClick={closeMenu}
+            >
               Get Quote
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 
+// Images (adjust names if yours differ)
+import heroImg from "../assets/student browsing with laptop and router.png";
+import routerProductImg from "../assets/router image.png";
+
 function Home() {
   const [hoveredBenefit, setHoveredBenefit] = useState(null);
   const [hoveredStep, setHoveredStep] = useState(null);
@@ -116,17 +120,23 @@ function Home() {
     },
     {
       q: "How do I pay?",
-      a: "Pay via M-Pesa Paybill. Payments are verified automatically and your internet is activated instantly (or within a few minutes).",
+      a: "Pay via M-Pesa Paybill. Payment is verified automatically and activation happens instantly (or within a few minutes).",
     },
-
     {
       q: "What if my internet becomes slow?",
       a: "We troubleshoot your router, signal, and line. If needed, our team visits to optimize the connection.",
     },
     {
       q: "Do you serve areas outside Juja & Kenyatta Road?",
-      a: "We’re expanding.Call Us and we’ll confirm if we can connect you.",
+      a: "We’re expanding. Call us and we’ll confirm if we can connect you.",
     },
+  ];
+
+  const routerFeatures = [
+    "Strong WiFi coverage",
+    "Supports multiple devices",
+    "Stable speeds for streaming & classes",
+    "Setup support available",
   ];
 
   const Stars = ({ count = 5 }) => (
@@ -162,6 +172,7 @@ function Home() {
               animation: "lintechFloat 4.5s ease-in-out infinite",
             }}
           >
+            {/* Badge */}
             <div
               style={{
                 display: "inline-flex",
@@ -177,9 +188,10 @@ function Home() {
               }}
             >
               <span style={{ fontSize: "1rem" }}>⚡</span>
-              Serving Juja & Kenyatta Road
+              
             </div>
 
+            {/* Title */}
             <h1
               style={{
                 fontFamily: "Poppins, sans-serif",
@@ -207,6 +219,7 @@ function Home() {
               in Juja & Kenyatta Road
             </h1>
 
+            {/* Subtitle */}
             <p
               style={{
                 fontSize: "1.15rem",
@@ -220,6 +233,7 @@ function Home() {
               starting from just <strong>Ksh 2,000</strong>.
             </p>
 
+            {/* Buttons */}
             <div
               style={{
                 display: "flex",
@@ -281,13 +295,14 @@ function Home() {
               </a>
             </div>
 
+            {/* Micro badges (no check marks) */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 gap: "0.6rem",
                 flexWrap: "wrap",
-                marginBottom: "1.8rem",
+                marginBottom: "1.6rem",
               }}
             >
               {["Fast Installation", "Local Support", "Stable Speeds"].map(
@@ -310,6 +325,22 @@ function Home() {
               )}
             </div>
 
+            {/* HERO IMAGE */}
+            <div style={{ marginTop: "1rem", marginBottom: "1.8rem" }}>
+              <img
+                src={heroImg}
+                alt="Customer enjoying Lintech WiFi"
+                style={{
+                  width: "100%",
+                  maxWidth: "900px",
+                  borderRadius: "16px",
+                  boxShadow: "0 18px 40px rgba(0,0,0,0.12)",
+                  border: "1px solid rgba(0,0,0,0.06)",
+                }}
+              />
+            </div>
+
+            {/* Quick Coverage Check */}
             <div
               style={{
                 maxWidth: "820px",
@@ -332,6 +363,7 @@ function Home() {
               >
                 Quick Coverage Check
               </h4>
+
               <p
                 style={{
                   color: "#555",
@@ -353,9 +385,7 @@ function Home() {
                     border: "1px solid rgba(0,0,0,0.05)",
                   }}
                 >
-                  <div style={{ fontWeight: 800, color: "#0b1c4d" }}>
-                    📍 Areas
-                  </div>
+                  <div style={{ fontWeight: 800, color: "#0b1c4d" }}>Areas</div>
                   <div style={{ color: "#555" }}>Juja • Kenyatta Road</div>
                 </div>
 
@@ -413,7 +443,7 @@ function Home() {
         </style>
       </section>
 
-      {/* Benefits Cards */}
+      {/* Benefits */}
       <section style={{ padding: "4rem 0", textAlign: "center" }}>
         <h2
           style={{
@@ -483,7 +513,113 @@ function Home() {
         </div>
       </section>
 
-      {/* Plans (same hover format) */}
+      {/* Routers for Sale */}
+      <section style={{ padding: "4rem 0", backgroundColor: "#fff" }}>
+        <div
+          style={{
+            width: "min(1100px, 92%)",
+            margin: "0 auto",
+            textAlign: "center",
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: 800,
+              color: "#0b1c4d",
+              marginBottom: "0.8rem",
+            }}
+          >
+            We Also Sell WiFi Routers
+          </h2>
+
+          <p
+            style={{
+              color: "#555",
+              maxWidth: "760px",
+              margin: "0 auto 2.2rem",
+              lineHeight: 1.6,
+            }}
+          >
+            Upgrade your WiFi setup with quality routers from Lintech. We can
+            also help with setup and configuration.
+          </p>
+
+          <div
+            style={{
+              maxWidth: "950px",
+              margin: "0 auto",
+              padding: "1.6rem",
+              borderRadius: "18px",
+              background: "rgba(255,255,255,0.95)",
+              border: "1px solid rgba(0,0,0,0.06)",
+              boxShadow: "0 18px 40px rgba(0,0,0,0.08)",
+              textAlign: "left",
+            }}
+          >
+            <div style={{ textAlign: "center", marginBottom: "1.2rem" }}>
+              <img
+                src={routerProductImg}
+                alt="Lintech WiFi Router"
+                style={{
+                  width: "100%",
+                  maxWidth: "520px",
+                  borderRadius: "16px",
+                  boxShadow: "0 16px 32px rgba(0,0,0,0.14)",
+                }}
+              />
+            </div>
+
+            <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
+              {routerFeatures.map((item) => (
+                <div
+                  key={item}
+                  style={{
+                    flex: "1 1 240px",
+                    padding: "0.9rem",
+                    borderRadius: "14px",
+                    background: "#f8f9fa",
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    color: "#555",
+                    fontWeight: 700,
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: "1.4rem" }}>
+              <a
+                href="https://wa.me/254717371114"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.55rem",
+                  padding: "0.85rem 1.4rem",
+                  fontSize: "1.05rem",
+                  backgroundColor: "#25D366",
+                  color: "#fff",
+                  borderRadius: "12px",
+                  textDecoration: "none",
+                  fontWeight: 800,
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.transform = "translateY(-2px)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.transform = "translateY(0)")
+                }
+              >
+                <i className="fab fa-whatsapp"></i> Ask About Router Prices
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Plans */}
       <section
         style={{
           padding: "4rem 0",
@@ -562,6 +698,7 @@ function Home() {
                   >
                     {p.name}
                   </h5>
+
                   {p.tag && (
                     <span
                       style={{
@@ -829,7 +966,7 @@ function Home() {
         </div>
       </section>
 
-      {/* FAQ (inline-style friendly) */}
+      {/* FAQ */}
       <section
         style={{
           padding: "4rem 0",
