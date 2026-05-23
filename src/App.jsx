@@ -5,8 +5,11 @@ import ScrollToTop from "./components/ScrollToTop";
 import { Outlet } from "react-router-dom";
 
 import Home from "./pages/Home";
+import WifiNetworking from "./pages/WifiNetworking";
+import TechServices from "./pages/TechServices";
+import Internet from "./pages/Internet";
+import Coverage from "./pages/Coverage";
 import About from "./pages/About";
-import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 
 function App() {
@@ -18,8 +21,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/wifi-networking" element={<WifiNetworking />} />
+        <Route path="/tech-services" element={<TechServices />} />
+        <Route path="/internet" element={<Internet />} />
+        <Route path="/coverage" element={<Coverage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

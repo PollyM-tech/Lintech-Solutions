@@ -1,143 +1,372 @@
 import aboutImg from "../assets/laptop-plus-router.png";
 
 function About() {
+  const internetPhone = "0717371134";
+  const techPhone = "0714660729";
+  const whatsappNumber = "254717371134";
+
+  const values = [
+    {
+      title: "Reliable Connectivity",
+      text: "We help homes and businesses stay connected through stable internet, clean WiFi setup, and dependable support.",
+    },
+    {
+      title: "Professional Installation",
+      text: "From routers to CCTV and network cabling, we focus on neat work, correct setup, and long-term performance.",
+    },
+    {
+      title: "Smart Technology Solutions",
+      text: "We also support businesses with websites, software development, cybersecurity, and AI automation services.",
+    },
+  ];
+
+  const promises = [
+    "Fast and friendly customer support",
+    "Clean WiFi, CCTV, and network installation",
+    "Internet solutions for homes and businesses",
+    "Digital services for modern organizations",
+    "Service coverage across Nairobi and Kiambu areas",
+  ];
+
   return (
-    <section className="section">
-      <div className="container">
-        {/* SECTION HEADER */}
-        <div className="text-center mb-5">
-          <h2 className="section-title">About Lintech</h2>
-          <p className="section-subtitle mx-auto">
-            Serving Juja & Kenyatta Road with reliable, affordable internet
-            since 2019.
+    <section style={sectionStyle}>
+      <div style={container}>
+        {/* HEADER */}
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <div style={badge}>About Lintech</div>
+
+          <h1 style={heroTitle}>
+            <span style={orangeText}>Connecting Homes,</span>{" "}
+            <span style={blueText}>Businesses & Modern Workflows</span>
+          </h1>
+
+          <p style={heroText}>
+            Lintech is an internet, networking, and technology solutions company
+            serving Nairobi and Kiambu areas with reliable connectivity,
+            professional installations, and smart digital services.
           </p>
         </div>
 
-        {/* TWO COLUMN CONTENT */}
-        <div className="row g-4 align-items-start">
-          {/* LEFT: IMAGE */}
-          <div className="col-lg-6">
-            <div
-              className="card-soft overflow-hidden h-100 p-0"
-            >
-              <img
-                src={aboutImg}
-                alt="Lintech Telecom Network"
-                className="img-fluid"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-            </div>
+        {/* MAIN CONTENT */}
+        <div style={twoColumn}>
+          {/* IMAGE */}
+          <div style={imageCard}>
+            <img
+              src={aboutImg}
+              alt="Lintech internet and technology solutions"
+              style={imageStyle}
+            />
           </div>
 
-          {/* RIGHT: TEXT */}
-          <div className="col-lg-6">
-            <div className="card-soft p-4 h-100">
-              <h5 className="fw-bold" style={{ color: "var(--primary-blue)" }}>
-                Who we are
-              </h5>
+          {/* TEXT */}
+          <div style={contentCard}>
+            <h2 style={sectionHeading}>
+              <span style={orangeText}>Who</span>{" "}
+              <span style={blueText}>We Are</span>
+            </h2>
 
-              <p style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-                Lintech is a local internet service provider delivering
-                reliable, high-speed WiFi to students, homes, and businesses in
-                Juja and along Kenyatta Road. We focus on stability, honest
-                pricing, and real support from a local team.
-              </p>
+            <p style={paragraph}>
+              Lintech provides internet, WiFi installation, CCTV systems,
+              network cabling, and digital technology services for homes,
+              apartments, offices, shops, schools, and growing businesses. Our
+              goal is simple: to make technology easier, more reliable, and more
+              useful for everyday people and organizations.
+            </p>
 
-              <p style={{ color: "var(--muted)", lineHeight: 1.75 }}>
-                Since 2019, we’ve helped customers move away from slow or
-                unreliable connections through clean installations, quality
-                routers, and ongoing technical support. We don’t just connect
-                you—we stay available to make sure your internet works when you
-                need it most.
-              </p>
+            <p style={paragraph}>
+              We started with connectivity, but our services have grown beyond
+              internet alone. Today, Lintech supports customers with complete
+              networking solutions and modern digital services such as website
+              development, software development, cybersecurity, and AI-powered
+              automation.
+            </p>
 
-              <h6
-                className="fw-bold mt-4"
-                style={{ color: "var(--primary-blue)" }}
-              >
-                Why customers choose Lintech
-              </h6>
-
-              <div style={{ marginTop: "0.75rem" }}>
-                <div style={{ marginBottom: "1rem" }}>
-                  <div className="fw-bold">Built for Juja Life</div>
-                  <div style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-                    We understand student schedules, busy homes, and business
-                    peak hours—so we prioritize stability and quick response.
-                  </div>
-                </div>
-
-                <div style={{ marginBottom: "1rem" }}>
-                  <div className="fw-bold">Clean Installation</div>
-                  <div style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-                    Neat cabling, smart router placement, and professional
-                    finishing for better performance and appearance.
-                  </div>
-                </div>
-
-                <div style={{ marginBottom: "1.2rem" }}>
-                  <div className="fw-bold">Straight Pricing</div>
-                  <div style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-                    Clear packages with honest expectations. No confusing
-                    technical jargon.
-                  </div>
-                </div>
-              </div>
-
-              <h6
-                className="fw-bold mt-3"
-                style={{ color: "var(--primary-blue)" }}
-              >
-                Our promise to you
-              </h6>
-
-              <div style={{ marginTop: "0.75rem" }}>
-                {[
-                  "Fast and friendly local support",
-                  "Stable speeds optimized for your space",
-                  "Router setup and WiFi coverage guidance",
-                  "Continuous improvement and expansion",
-                ].map((text) => (
-                  <div
-                    key={text}
-                    style={{
-                      padding: "0.55rem 0",
-                      borderBottom: "1px solid rgba(0,0,0,0.06)",
-                      color: "var(--muted)",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {text}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <p style={paragraph}>
+              Whether you need a stable home connection, office networking, CCTV
+              installation, or a digital solution for your business, Lintech
+              focuses on clear communication, professional setup, and dependable
+              support.
+            </p>
           </div>
         </div>
 
-        {/* CTA BELOW BOTH COLUMNS */}
-        <div className="d-flex justify-content-center flex-wrap gap-3 mt-5">
-          <a href="/contact" className="btn btn-orange px-4">
-            Talk to Us
-          </a>
-          <a href="tel:+254717371134" className="btn btn-outline-blue px-4">
-            Call Now
-          </a>
-          <a
-            href="https://wa.me/254717371114"
-            className="btn btn-outline-blue px-4"
-          >
-            WhatsApp
-          </a>
+        {/* VALUES */}
+        <section style={{ marginTop: "4rem" }}>
+          <h2 style={sectionHeadingCenter}>
+            <span style={orangeText}>What</span>{" "}
+            <span style={blueText}>We Stand For</span>
+          </h2>
+
+          <div style={gridStyle}>
+            {values.map((item) => (
+              <div key={item.title} style={cardStyle}>
+                <h3 style={orangeCardTitle}>{item.title}</h3>
+                <p style={cardText}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* PROMISE */}
+        <section style={{ marginTop: "4rem" }}>
+          <div style={promiseBox}>
+            <h2 style={sectionHeadingCenter}>
+              <span style={orangeText}>Our Promise</span>{" "}
+              <span style={blueText}>to You</span>
+            </h2>
+
+            <p style={heroText}>
+              We do not just install and leave. We help you choose the right
+              service, set it up properly, and support you when you need help.
+            </p>
+
+            <div style={promiseGrid}>
+              {promises.map((item) => (
+                <div key={item} style={promiseItem}>
+                  <span style={{ color: "#ff7a00", fontWeight: 900 }}>✓</span>{" "}
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div style={ctaSection}>
+          <h2 style={sectionHeadingCenter}>
+            <span style={orangeText}>Need Internet, Networking</span>{" "}
+            <span style={blueText}>or Tech Support?</span>
+          </h2>
+
+          <p style={heroText}>
+            Contact Lintech today and let us help you choose the right solution.
+          </p>
+
+          <div style={buttonWrap}>
+            <a href={`tel:${internetPhone}`} style={orangeButton}>
+              Internet: {internetPhone}
+            </a>
+
+            <a href={`tel:${techPhone}`} style={navyButton}>
+              Tech: {techPhone}
+            </a>
+
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noreferrer"
+              style={greenButton}
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+/* STYLES */
+const sectionStyle = {
+  padding: "4rem 0",
+  background:
+    "radial-gradient(900px 450px at 10% 5%, rgba(245,124,0,0.12), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)",
+};
+
+const container = {
+  width: "min(1100px, 92%)",
+  margin: "0 auto",
+};
+
+const badge = {
+  display: "inline-flex",
+  padding: "0.45rem 0.85rem",
+  borderRadius: "999px",
+  background: "rgba(245,124,0,0.12)",
+  color: "#0b1c4d",
+  fontWeight: 800,
+  fontFamily: "Poppins, sans-serif",
+  marginBottom: "1rem",
+};
+
+const heroTitle = {
+  fontFamily: "Poppins, sans-serif",
+  fontWeight: 900,
+  fontSize: "clamp(2rem, 4vw, 3.2rem)",
+  lineHeight: 1.1,
+  maxWidth: "900px",
+  margin: "0 auto 1rem",
+  textAlign: "center",
+};
+
+const orangeText = {
+  color: "#ff7a00",
+};
+
+const blueText = {
+  color: "#0b1c4d",
+};
+
+const heroText = {
+  color: "#555",
+  maxWidth: "780px",
+  margin: "0 auto",
+  lineHeight: 1.7,
+  fontSize: "1.05rem",
+  textAlign: "center",
+};
+
+const twoColumn = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+  gap: "2rem",
+  alignItems: "stretch",
+};
+
+const imageCard = {
+  borderRadius: "20px",
+  overflow: "hidden",
+  background: "#fff",
+  boxShadow: "0 18px 40px rgba(0,0,0,0.1)",
+  border: "1px solid rgba(0,0,0,0.06)",
+};
+
+const imageStyle = {
+  width: "100%",
+  height: "100%",
+  minHeight: "420px",
+  objectFit: "cover",
+  display: "block",
+};
+
+const contentCard = {
+  padding: "2rem",
+  borderRadius: "20px",
+  background: "#fff",
+  boxShadow: "0 18px 40px rgba(0,0,0,0.08)",
+  border: "1px solid rgba(0,0,0,0.06)",
+};
+
+const sectionHeading = {
+  fontFamily: "Poppins, sans-serif",
+  fontWeight: 900,
+  marginBottom: "1rem",
+};
+
+const sectionHeadingCenter = {
+  fontFamily: "Poppins, sans-serif",
+  fontWeight: 900,
+  marginBottom: "1rem",
+  textAlign: "center",
+};
+
+const paragraph = {
+  color: "#555",
+  lineHeight: 1.75,
+  marginBottom: "1rem",
+};
+
+const gridStyle = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gap: "1.2rem",
+};
+
+const cardStyle = {
+  padding: "1.7rem",
+  borderRadius: "16px",
+  background: "#fff",
+  border: "1px solid rgba(0,0,0,0.06)",
+  boxShadow: "0 10px 24px rgba(0,0,0,0.07)",
+};
+
+const orangeCardTitle = {
+  fontFamily: "Poppins, sans-serif",
+  color: "#ff7a00",
+  fontWeight: 900,
+  fontSize: "1.15rem",
+  marginBottom: "0.7rem",
+};
+
+const cardText = {
+  color: "#555",
+  lineHeight: 1.65,
+  margin: 0,
+};
+
+const promiseBox = {
+  padding: "2rem",
+  borderRadius: "20px",
+  background: "#fff",
+  boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
+  border: "1px solid rgba(0,0,0,0.06)",
+};
+
+const promiseGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+  gap: "1rem",
+  marginTop: "2rem",
+};
+
+const promiseItem = {
+  padding: "1rem",
+  borderRadius: "14px",
+  background: "#f8f9fa",
+  color: "#0b1c4d",
+  fontWeight: 800,
+};
+
+const ctaSection = {
+  marginTop: "4rem",
+  textAlign: "center",
+};
+
+const buttonWrap = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "1rem",
+  flexWrap: "wrap",
+  marginTop: "1.8rem",
+};
+
+const orangeButton = {
+  display: "inline-flex",
+  alignItems: "center",
+  padding: "0.85rem 1.4rem",
+  fontSize: "1.05rem",
+  backgroundColor: "#ff7a00",
+  color: "#fff",
+  borderRadius: "12px",
+  textDecoration: "none",
+  boxShadow: "0 14px 28px rgba(245,124,0,0.25)",
+  fontWeight: 800,
+};
+
+const navyButton = {
+  display: "inline-flex",
+  alignItems: "center",
+  padding: "0.85rem 1.4rem",
+  fontSize: "1.05rem",
+  backgroundColor: "#0b1c4d",
+  color: "#fff",
+  borderRadius: "12px",
+  textDecoration: "none",
+  boxShadow: "0 14px 28px rgba(11,28,77,0.22)",
+  fontWeight: 800,
+};
+
+const greenButton = {
+  display: "inline-flex",
+  alignItems: "center",
+  padding: "0.85rem 1.4rem",
+  fontSize: "1.05rem",
+  backgroundColor: "#25D366",
+  color: "#fff",
+  borderRadius: "12px",
+  textDecoration: "none",
+  boxShadow: "0 14px 28px rgba(37,211,102,0.22)",
+  fontWeight: 800,
+};
 
 export default About;
