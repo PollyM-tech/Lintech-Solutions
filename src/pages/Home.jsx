@@ -2,29 +2,33 @@ import { useEffect, useMemo, useState } from "react";
 
 import heroImg from "../assets/student browsing with laptop and router.png";
 import routerProductImg from "../assets/router image.png";
+import aboutImg from "../assets/laptop-plus-router.png";
+import whatsappIcon from "../assets/whatsapp.png";
 
-function Home() {
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [hoveredPlan, setHoveredPlan] = useState(null);
-  const [hoveredStep, setHoveredStep] = useState(null);
-  const [hoveredTestimonial, setHoveredTestimonial] = useState(null);
-  const [openFaq, setOpenFaq] = useState(0);
+const Home = () => {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordVisible, setWordVisible] = useState(true);
 
   const internetPhone = "0717371134";
   const techPhone = "0714660729";
   const whatsappNumber = "254717371134";
 
+  const whatsappMessage =
+    "Hello Lintech Telecom, I would like to check coverage and request a service. Please assist me.";
+
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage,
+  )}`;
+
   const rotatingWords = useMemo(
-    () => ["Reliable", "Fast", "Stable", "Affordable", "Smart"],
+    () => ["Connected", "Secure", "Automated", "Reliable", "Digital"],
     [],
   );
-
-  const [wordIndex, setWordIndex] = useState(0);
-  const [wordVisible, setWordVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setWordVisible(false);
+
       setTimeout(() => {
         setWordIndex((prev) => (prev + 1) % rotatingWords.length);
         setWordVisible(true);
@@ -36,141 +40,105 @@ function Home() {
 
   const mainServices = [
     {
-      icon: "fa-wifi",
-      title: "Fiber Internet",
-      text: "Reliable internet packages for homes, apartments, shops, and businesses across Nairobi and Kiambu counties.",
-      button: "View Internet Plans",
-      link: "/internet",
+      title: "Internet Services",
+      label: "Stable connectivity",
+      description:
+        "Reliable internet solutions for homes, apartments, shops, offices, and organizations across Nairobi and selected Kiambu areas.",
+      href: "#internet",
+      cta: "Get Connected",
     },
     {
-      icon: "fa-network-wired",
-      title: "WiFi & Networking",
-      text: "Professional WiFi installation, CCTV setup, network cabling, router configuration, and troubleshooting.",
-      button: "Explore Networking",
-      link: "/wifi-networking",
+      title: "WiFi, CCTV & Networking",
+      label: "Clean installation",
+      description:
+        "Professional WiFi setup, CCTV installation, network cabling, router configuration, and troubleshooting.",
+      href: "#wifi-networking",
+      cta: "Explore Networking",
     },
     {
-      icon: "fa-laptop-code",
-      title: "Tech Services",
-      text: "Website development, software development, cybersecurity, and AI automation services for clients worldwide.",
-      button: "View Tech Services",
-      link: "/tech-services",
+      title: "Digital & Tech Services",
+      label: "Business-ready systems",
+      description:
+        "Website development, software systems, cybersecurity, and AI automation for growing businesses.",
+      href: "#tech-services",
+      cta: "View Digital Services",
+    },
+  ];
+
+  const internetPlans = [
+    {
+      name: "Home Basic",
+      price: "Ksh 2,000",
+      description:
+        "Best for light browsing, online classes, and smaller homes.",
+      perks: ["Smooth browsing", "Online classes", "Responsive support"],
+    },
+    {
+      name: "Home Plus",
+      price: "Ksh 3,000",
+      description:
+        "Perfect for families, streaming, work, and multiple devices.",
+      perks: ["Streaming", "Video calls", "More devices"],
+      popular: true,
+    },
+    {
+      name: "Business Pro",
+      price: "Custom",
+      description:
+        "Stable connectivity for offices, shops, and business operations.",
+      perks: ["Site assessment", "Business setup", "Reliable connectivity"],
     },
   ];
 
   const networkingServices = [
-    "Home WiFi Installation",
-    "Business Networking",
-    "CCTV Installation",
-    "Network Cabling",
-    "Router Configuration",
-    "WiFi Troubleshooting",
+    {
+      title: "WiFi Installation",
+      text: "Home and business WiFi setup for better coverage, stronger signal, and stable daily use.",
+    },
+    {
+      title: "Router Configuration",
+      text: "Router setup, password security, device connection support, and coverage optimization.",
+    },
+    {
+      title: "CCTV Installation",
+      text: "Professional CCTV setup for homes, shops, offices, apartments, and business premises.",
+    },
+    {
+      title: "Network Cabling",
+      text: "Clean structured cabling for offices, buildings, shops, and business networks.",
+    },
+    {
+      title: "Network Troubleshooting",
+      text: "Support for slow internet, weak WiFi, connection drops, router issues, and network faults.",
+    },
+    {
+      title: "Business Networking",
+      text: "Reliable network planning and setup for businesses that need stable connectivity.",
+    },
   ];
 
   const techServices = [
     {
       title: "Website Development",
-      text: "Professional websites for businesses, startups, schools, and organizations.",
+      text: "Professional websites, landing pages, company profiles, and business platforms.",
     },
     {
-      title: "Software Development",
-      text: "Custom systems that help businesses manage operations, clients, and reporting.",
+      title: "Custom Software Systems",
+      text: "Business systems for schools, clinics, shops, SMEs, and organizations.",
     },
     {
-      title: "Cyber Security",
-      text: "Security support for networks, websites, business systems, and digital platforms.",
+      title: "Cybersecurity",
+      text: "Security support for websites, networks, business systems, and digital platforms.",
     },
     {
-      title: "AI Automation Services",
-      text: "AI chatbots, workflow automation, WhatsApp automation, and smart business tools.",
-    },
-  ];
-
-  const plans = [
-    {
-      name: "Home Basic",
-      price: "Ksh 2,000",
-      desc: "Best for light browsing, online classes, and small homes.",
-      perks: ["Smooth browsing", "Video calls", "Local support"],
-      accent: "#ff7a00",
-    },
-    {
-      name: "Home Plus",
-      price: "Ksh 3,000",
-      desc: "Perfect for families, streaming, and multiple devices.",
-      perks: ["Streaming", "Online classes", "More devices"],
-      accent: "#0b1c4d",
-      tag: "Popular",
-    },
-    {
-      name: "Business Pro",
-      price: "Custom",
-      desc: "Stable internet for offices, shops, and business operations.",
-      perks: ["Priority support", "Business setup", "Stable connectivity"],
-      accent: "#25D366",
-    },
-  ];
-
-  const steps = [
-    {
-      step: 1,
-      title: "Request Service",
-      text: "Call or WhatsApp us and tell us the service you need.",
-    },
-    {
-      step: 2,
-      title: "Confirm Location",
-      text: "We confirm your exact location and recommend the best solution.",
-    },
-    {
-      step: 3,
-      title: "Installation",
-      text: "Our team installs, configures, and tests everything professionally.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Customer in Nairobi",
-      quote:
-        "Lintech helped us set up stable internet and WiFi for our office. The support was quick and professional.",
-      rating: 5,
-    },
-    {
-      name: "Business Client",
-      quote:
-        "Their network cabling and router setup made our office connection much better. Very reliable team.",
-      rating: 5,
-    },
-    {
-      name: "Home Client",
-      quote:
-        "The installation was fast, and the WiFi has been stable for streaming, work, and online classes.",
-      rating: 5,
-    },
-  ];
-
-  const faqs = [
-    {
-      q: "Which areas does Lintech serve?",
-      a: "Internet, WiFi, CCTV, and networking services are available in selected Nairobi and Kiambu County areas. Tech services can be delivered to clients worldwide.",
-    },
-    {
-      q: "Which number should I call for internet services?",
-      a: `For internet services, call ${internetPhone}.`,
-    },
-    {
-      q: "Which number should I call for tech services?",
-      a: `For tech services including websites, software, cybersecurity, and AI automation, call ${techPhone}.`,
-    },
-    {
-      q: "Do you install CCTV systems?",
-      a: "Yes. CCTV installation is part of our WiFi and Networking services. We install cameras, configure DVR/NVR systems, and support remote monitoring.",
+      title: "AI Automation",
+      text: "AI workflows, chatbots, WhatsApp automation, and smart tools for productivity.",
     },
   ];
 
   const coverageAreas = [
-    "Kahawa Sukari & Wendani",
+    "Kahawa Sukari",
+    "Kahawa Wendani",
     "Ruiru",
     "Kasarani",
     "Roysambu",
@@ -180,1016 +148,483 @@ function Home() {
     "Thika",
   ];
 
-  const Stars = ({ count = 5 }) => (
-    <span style={{ color: "#ffb703", letterSpacing: "2px" }}>
-      {"★".repeat(count)}
-    </span>
-  );
+  const detailsToSend = [
+    { icon: "fa-user", label: "Your name" },
+    { icon: "fa-location-dot", label: "Exact location" },
+    { icon: "fa-map", label: "Nearest landmark" },
+    { icon: "fa-briefcase", label: "Service needed" },
+    { icon: "fa-clock", label: "Preferred time" },
+    { icon: "fa-building", label: "Home or business" },
+  ];
+
+  const heroEyebrowClass =
+    "mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7A00] sm:text-[11px]";
+
+  const heroTitleClass =
+    "mb-4 max-w-3xl text-3xl font-black leading-[1.08] tracking-[-0.035em] text-[#0B1C4D] sm:text-4xl lg:text-5xl";
+
+  const eyebrowClass =
+    "mb-3 inline-flex rounded-full border border-[#FF7A00]/20 bg-[#FF7A00]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF7A00] sm:text-[11px]";
+
+  const sectionHeaderClass = "mx-auto mb-9 max-w-3xl text-center";
+
+  const sectionTitleClass =
+    "text-2xl font-black leading-[1.12] tracking-[-0.03em] text-[#0B1C4D] sm:text-3xl lg:text-4xl";
+
+  const sectionTextClass = "mt-4 text-sm leading-7 text-slate-600 sm:text-base";
+
+  const primaryButtonClass =
+    "inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7A00] px-6 py-3 text-sm font-black text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-[#E86D00]";
+
+  const secondaryButtonClass =
+    "inline-flex items-center justify-center gap-2 rounded-xl border border-[#0B1C4D]/20 bg-white px-6 py-3 text-sm font-black text-[#0B1C4D] shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF7A00]/45 hover:text-[#FF7A00]";
+
+  const cardClass =
+    "rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(11,28,77,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#FF7A00]/35 hover:shadow-[0_18px_45px_rgba(11,28,77,0.08)]";
 
   return (
-    <div>
+    <main className="relative overflow-hidden bg-white pt-[74px] font-[Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-slate-700 antialiased">
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.018] [background-image:linear-gradient(#0B1C4D_1px,transparent_1px),linear-gradient(90deg,#0B1C4D_1px,transparent_1px)] [background-size:72px_72px]" />
+
       <a
-        href={`https://wa.me/${whatsappNumber}`}
+        href={whatsappLink}
         target="_blank"
         rel="noreferrer"
-        className="floating-whatsapp"
-        aria-label="Chat with Lintech on WhatsApp"
+        aria-label="Chat with Lintech Telecom on WhatsApp"
+        className="fixed bottom-6 right-6 z-[9999] grid h-16 w-16 place-items-center rounded-full bg-white p-1.5 shadow-[0_18px_45px_rgba(37,211,102,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105"
       >
-        <i className="fab fa-whatsapp"></i>
-        <span className="floating-whatsapp-text">Chat</span>
+        <img
+          src={whatsappIcon}
+          alt="WhatsApp"
+          className="h-full w-full object-contain"
+        />
       </a>
 
-      {/* HERO */}
-      <section style={heroSection}>
-        <div style={container}>
-          <div style={heroCard}>
-            <div style={badge}>
-              <span>⚡</span>
-              Nairobi & Kiambu Internet • Worldwide Tech Services
-            </div>
+      <section
+        id="home"
+        className="relative z-10 scroll-mt-24 overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(255,122,0,0.11),transparent_30%),linear-gradient(135deg,#ffffff_0%,#fbfdff_50%,#eef4ff_100%)] px-6 py-14"
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="text-center lg:text-left">
+            <p className={heroEyebrowClass}>Welcome to Lintech</p>
 
-            <h1 style={heroTitle}>
+            <h1 className={heroTitleClass}>
+              Stay{" "}
               <span
-                style={{
-                  color: "#ff7a00",
-                  display: "inline-block",
-                  transition: "opacity 0.18s ease, transform 0.18s ease",
-                  opacity: wordVisible ? 1 : 0,
-                  transform: wordVisible ? "translateY(0)" : "translateY(6px)",
-                }}
+                className={`inline-block text-[#FF7A00] transition duration-200 ${
+                  wordVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-2 opacity-0"
+                }`}
               >
                 {rotatingWords[wordIndex]}
-              </span>{" "}
-              <span style={{ color: "#ff7a00" }}>Internet, Networking</span>
+              </span>
               <br />
-              <span style={{ color: "#0b1c4d" }}>& Smart Tech Solutions</span>
+              with Internet, CCTV, Networking & Digital Systems
             </h1>
 
-            <p style={heroText}>
-              Fast fiber internet, professional WiFi installation, CCTV systems,
-              network cabling, cybersecurity, websites, software development,
-              and AI automation services for homes, businesses, and
-              organizations.
+            <p className="mx-auto mb-7 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base lg:mx-0">
+              Lintech Telecom installs, troubleshoots, and supports internet,
+              WiFi, networking, CCTV, websites, software systems, cybersecurity,
+              and AI automation.
             </p>
 
-            <div style={buttonWrap}>
-              <a href={`tel:${internetPhone}`} style={orangeButton}>
-                <i className="fas fa-phone"></i> Internet: {internetPhone}
+            <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+              <a href="#services" className={primaryButtonClass}>
+                Explore Services
+                <i className="fas fa-arrow-right" />
               </a>
 
-              <a href={`tel:${techPhone}`} style={navyButton}>
-                <i className="fas fa-laptop-code"></i> Tech: {techPhone}
-              </a>
-
-              <a
-                href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                rel="noreferrer"
-                style={greenButton}
-              >
-                <i className="fab fa-whatsapp"></i> WhatsApp Us
+              <a href="#internet" className={secondaryButtonClass}>
+                View Internet Plans
+                <i className="fas fa-arrow-down text-[#FF7A00]" />
               </a>
             </div>
+          </div>
 
-            <div style={pillWrap}>
-              {[
-                "Fiber Internet",
-                "WiFi Installation",
-                "CCTV",
-                "Network Cabling",
-                "Tech Services",
-              ].map((tag) => (
-                <span key={tag} style={pillStyle}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div style={{ marginTop: "1rem", marginBottom: "1.8rem" }}>
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#EEF4FF] p-4 shadow-[0_25px_70px_rgba(11,28,77,0.12)]">
               <img
                 src={heroImg}
-                alt="Lintech internet and technology services"
-                style={heroImage}
+                alt="Lintech Telecom internet, networking, and digital systems"
+                className="relative z-10 w-full rounded-[1.6rem] object-cover"
               />
-            </div>
-
-            <div style={requestBox}>
-              <h4 style={smallHeading}>Quick Service Request</h4>
-
-              <p style={requestText}>
-                Internet and networking services cover selected Nairobi and
-                Kiambu County areas. Tech services are available worldwide. Call
-                or WhatsApp us to get the right recommendation.
-              </p>
-
-              <div style={requestGrid}>
-                <div style={infoBox}>
-                  <div style={infoTitle}>Internet Services</div>
-                  <div style={{ color: "#555" }}>{internetPhone}</div>
-                </div>
-
-                <div style={infoBox}>
-                  <div style={infoTitle}>Tech Services</div>
-                  <div style={{ color: "#555" }}>{techPhone}</div>
-                </div>
-
-                <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={smallGreenButton}
-                >
-                  <i className="fab fa-whatsapp"></i> Confirm Location
-                </a>
-              </div>
             </div>
           </div>
         </div>
-
-        <style>{`
-          html {
-            scroll-behavior: smooth;
-          }
-
-          ${cssAnimations}
-        `}</style>
       </section>
 
-      {/* MAIN SERVICES */}
-      <section style={sectionWhite}>
-        <h2 style={sectionHeading}>Our Main Services</h2>
-        <p style={sectionText}>
-          Lintech provides complete internet, networking, and digital technology
-          solutions for homes, businesses, and organizations.
-        </p>
+      <section
+        id="services"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>What we do</p>
+            <h2 className={sectionTitleClass}>Our Core Services</h2>
+            <p className={sectionTextClass}>
+              One company for internet, WiFi, CCTV, networking, websites,
+              software, cybersecurity, and AI automation.
+            </p>
+          </div>
 
-        <div style={cardFlex}>
-          {mainServices.map((service, i) => {
-            const isHover = hoveredCard === i;
-            return (
-              <div
-                key={service.title}
-                onMouseEnter={() => setHoveredCard(i)}
-                onMouseLeave={() => setHoveredCard(null)}
-                style={hoverCard(isHover, "center")}
-              >
-                <div style={iconStyle}>
-                  <i className={`fas ${service.icon}`}></i>
-                </div>
-                <h5 style={cardTitle}>{service.title}</h5>
-                <p style={cardText}>{service.text}</p>
-                <a href={service.link} style={textLink}>
-                  {service.button} →
-                </a>
-              </div>
-            );
-          })}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
+            {mainServices.map((service) => (
+              <a key={service.title} href={service.href} className={cardClass}>
+                <h3 className="mb-2 text-xl font-black tracking-[-0.025em] text-[#0B1C4D]">
+                  {service.title}
+                </h3>
+                <p className="mb-4 text-xs font-black uppercase tracking-[0.04em] text-[#FF7A00]">
+                  {service.label}
+                </p>
+                <p className="text-sm leading-7 text-slate-500">
+                  {service.description}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[#FF7A00]">
+                  {service.cta}
+                  <i className="fas fa-arrow-right" />
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* INTERNET PLANS */}
-      <section style={sectionWhite}>
-        <h2 style={sectionHeading}>Internet Packages</h2>
-        <p style={sectionText}>
-          Simple, reliable, and affordable internet packages for homes and
-          businesses. For all internet services, call{" "}
-          <strong>{internetPhone}</strong>.
-        </p>
+      <section
+        id="internet"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>Internet packages</p>
+            <h2 className={sectionTitleClass}>
+              Fast & Reliable Internet Packages
+            </h2>
+            <p className={sectionTextClass}>
+              Get stable fiber internet for homes, apartments, shops, offices,
+              and small businesses.
+            </p>
+          </div>
 
-        <div style={cardFlex}>
-          {plans.map((p, i) => {
-            const isHover = hoveredPlan === i;
-            return (
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
+            {internetPlans.map((plan) => (
               <div
-                key={p.name}
-                onMouseEnter={() => setHoveredPlan(i)}
-                onMouseLeave={() => setHoveredPlan(null)}
-                style={{
-                  ...hoverCard(isHover, "left"),
-                  border: p.tag
-                    ? "2px solid rgba(255,122,0,0.35)"
-                    : "1px solid rgba(0,0,0,0.05)",
-                }}
+                key={plan.name}
+                className={`relative ${cardClass} ${
+                  plan.popular ? "ring-4 ring-[#FF7A00]/10" : ""
+                }`}
               >
-                <div style={planHeader}>
-                  <h5 style={{ ...cardTitle, margin: 0 }}>{p.name}</h5>
-                  {p.tag && <span style={popularTag}>{p.tag}</span>}
-                </div>
+                {plan.popular && (
+                  <span className="absolute right-6 top-6 rounded-full bg-[#FF7A00] px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.08em] text-white">
+                    Popular
+                  </span>
+                )}
 
-                <div style={{ ...priceStyle, color: p.accent }}>{p.price}</div>
+                <h3 className="mb-2 text-xl font-black text-[#0B1C4D]">
+                  {plan.name}
+                </h3>
+                <p className="mb-4 text-2xl font-black text-[#FF7A00]">
+                  {plan.price}
+                </p>
+                <p className="text-sm leading-7 text-slate-500">
+                  {plan.description}
+                </p>
 
-                <p style={cardText}>{p.desc}</p>
-
-                <div style={{ marginTop: "1rem" }}>
-                  {p.perks.map((perk) => (
-                    <div key={perk} style={perkStyle}>
-                      ✓ {perk}
-                    </div>
+                <div className="mt-6 space-y-3">
+                  {plan.perks.map((perk) => (
+                    <p
+                      key={perk}
+                      className="flex items-center gap-3 text-sm font-bold text-slate-700"
+                    >
+                      <i className="fas fa-check-circle text-[#FF7A00]" />
+                      {perk}
+                    </p>
                   ))}
                 </div>
 
-                <a href={`tel:${internetPhone}`} style={fullOrangeButton}>
-                  Call for Internet
+                <a href="#contact" className={`mt-7 ${primaryButtonClass}`}>
+                  Request Plan
                 </a>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* WIFI & NETWORKING */}
-      <section
-        style={{
-          padding: "5rem 0",
-          backgroundColor: "#f3f4f6",
-        }}
-      >
-        <div style={containerCenter}>
-          <h2
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 800,
-              color: "#0b1c4d",
-              marginBottom: "1rem",
-              textAlign: "center",
-            }}
-          >
-            WiFi & Networking Solutions
-          </h2>
-
-          <p
-            style={{
-              color: "#555",
-              maxWidth: "760px",
-              margin: "0 auto 3rem",
-              lineHeight: 1.7,
-              textAlign: "center",
-            }}
-          >
-            From home WiFi setup to office networking, CCTV installation, and
-            network cabling, we help you build stable, secure, and professional
-            network systems for homes and businesses.
-          </p>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "1.2rem",
-            }}
-          >
-            {networkingServices.map((item, i) => (
-  <div
-    key={item}
-    onMouseEnter={() => setHoveredCard(i + 100)}
-    onMouseLeave={() => setHoveredCard(null)}
-    style={{
-      padding: "1.6rem",
-      borderRadius: "16px",
-      background: "#ffffff",
-      border: "1px solid rgba(0,0,0,0.05)",
-      boxShadow:
-        hoveredCard === i + 100
-          ? "0 16px 32px rgba(0,0,0,0.10)"
-          : "0 8px 20px rgba(0,0,0,0.05)",
-      transform:
-        hoveredCard === i + 100 ? "translateY(-5px)" : "translateY(0)",
-      transition: "all 0.25s ease",
-      textAlign: "center",
-    }}
-  >
-    <div
-      style={{
-        color: "#555",
-        fontWeight: 700,
-        fontFamily: "Poppins, sans-serif",
-        fontSize: "1rem",
-      }}
-    >
-      {item}
-    </div>
-  </div>
-))}
-             
-          </div>
-        </div>
-      </section>
-      {/* TECH SERVICES */}
-      <section style={sectionWhite}>
-        <div style={containerCenter}>
-          <h2 style={sectionHeading}>Digital & Technology Services</h2>
-          <p style={sectionText}>
-            We help businesses grow and automate through modern websites, custom
-            systems, cybersecurity solutions, and AI-powered workflows. For all
-            tech services, call <strong>{techPhone}</strong>.
-          </p>
-
-          <div style={gridStyle}>
-            {techServices.map((item) => (
-              <div key={item.title} style={techCard}>
-                <h4 style={orangeServiceHeading}>{item.title}</h4>
-                <p style={cardText}>{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ROUTERS */}
-      <section style={sectionWhite}>
-        <div style={containerCenter}>
-          <h2 style={sectionHeading}>We Also Sell WiFi Routers</h2>
-          <p style={sectionText}>
-            Upgrade your WiFi setup with quality routers from Lintech. We also
-            help with setup, configuration, and coverage optimization.
-          </p>
+      <section
+        id="wifi-networking"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto max-w-7xl rounded-[1.5rem] bg-[#F5F8FF] p-6 shadow-[0_16px_45px_rgba(11,28,77,0.06)] lg:p-8">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>WiFi, CCTV & Network Installation</p>
+            <h2 className={sectionTitleClass}>
+              WiFi, CCTV & Network Installation in Nairobi and Kiambu
+            </h2>
+            <p className={sectionTextClass}>
+              Professional home and business WiFi setup, CCTV installation,
+              structured network cabling, router configuration, and network
+              troubleshooting.
+            </p>
+          </div>
 
-          <div style={routerBox}>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
+            {networkingServices.map((service) => (
+              <div key={service.title} className={cardClass}>
+                <h3 className="mb-3 text-xl font-black tracking-[-0.025em] text-[#0B1C4D]">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-7 text-slate-500">
+                  {service.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="router-setup"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 rounded-[1.5rem] bg-white p-6 shadow-[0_16px_45px_rgba(11,28,77,0.06)] ring-1 ring-slate-200 lg:grid-cols-[0.72fr_1.28fr] lg:p-8">
+          <div className="relative overflow-hidden rounded-[1.5rem] bg-[#F5F8FF] p-4">
             <img
               src={routerProductImg}
-              alt="Lintech WiFi Router"
-              style={routerImage}
+              alt="WiFi router sold and configured by Lintech Telecom"
+              className="relative w-full rounded-[1.2rem] object-cover"
             />
+          </div>
 
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
-            >
-              <i className="fab fa-whatsapp"></i> Ask About Router Prices
+          <div>
+            <p className={eyebrowClass}>Router sales & setup</p>
+            <h2 className={sectionTitleClass}>
+              Router Setup for Better Coverage
+            </h2>
+            <p className={sectionTextClass}>
+              Get quality routers from Lintech and have them configured for
+              better coverage, stronger passwords, and more stable device
+              connections.
+            </p>
+
+            <a href="#contact" className={`mt-6 ${primaryButtonClass}`}>
+              Request Router Setup
             </a>
           </div>
         </div>
       </section>
 
-      {/* STEPS */}
-      <section style={sectionSoft}>
-        <h2 style={{ ...sectionHeading, textAlign: "center" }}>
-          Get Started in 3 Simple Steps
-        </h2>
+      <section
+        id="tech-services"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto max-w-7xl rounded-[1.5rem] bg-[#F5F8FF] p-6 shadow-[0_16px_45px_rgba(11,28,77,0.06)] lg:p-8">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>Digital & Technology Services</p>
+            <h2 className={sectionTitleClass}>
+              Smart Digital & Technology Services
+            </h2>
+            <p className={sectionTextClass}>
+              Lintech helps businesses grow with websites, custom software
+              systems, cybersecurity, and AI automation services.
+            </p>
+          </div>
 
-        <div style={cardFlex}>
-          {steps.map((s, i) => {
-            const isHover = hoveredStep === i;
-            return (
-              <div
-                key={s.step}
-                onMouseEnter={() => setHoveredStep(i)}
-                onMouseLeave={() => setHoveredStep(null)}
-                style={hoverCard(isHover, "center")}
-              >
-                <div style={stepCircle}>{s.step}</div>
-                <h5 style={cardTitle}>{s.title}</h5>
-                <p style={cardText}>{s.text}</p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {techServices.map((service) => (
+              <div key={service.title} className={cardClass}>
+                <h3 className="mb-3 text-xl font-black text-[#0B1C4D]">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-7 text-slate-500">
+                  {service.text}
+                </p>
               </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* COVERAGE */}
-      <section style={sectionWhite}>
-        <div style={containerCenter}>
-          <h2 style={sectionHeading}>Areas We Serve</h2>
-          <p style={sectionText}>
-            Internet and networking services are available in selected Nairobi
-            and Kiambu County areas. Tech services are available worldwide.
-          </p>
-
-          <div style={areaWrap}>
-            {coverageAreas.map((area) => (
-              <span key={area} style={areaPill}>
-                {area}
-              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section style={sectionWhite}>
-        <h2 style={sectionHeading}>Customer Feedback</h2>
-        <p style={sectionText}>
-          Feedback from clients who trust Lintech for internet, networking, and
-          technology services.
-        </p>
+      <section
+        id="coverage"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>Coverage Areas</p>
+            <h2 className={sectionTitleClass}>
+              Internet & Tech Service Coverage
+            </h2>
+            <p className={sectionTextClass}>
+              Lintech provides internet, WiFi installation, CCTV, and network
+              cabling across selected areas in Nairobi and Kiambu. Send your
+              exact location to confirm availability.
+            </p>
+          </div>
 
-        <div style={cardFlex}>
-          {testimonials.map((t, i) => {
-            const isHover = hoveredTestimonial === i;
-            return (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {coverageAreas.map((area) => (
               <div
-                key={t.name}
-                onMouseEnter={() => setHoveredTestimonial(i)}
-                onMouseLeave={() => setHoveredTestimonial(null)}
-                style={hoverCard(isHover, "left")}
+                key={area}
+                className="group flex items-center gap-4 rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-[0_14px_40px_rgba(11,28,77,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#FF7A00]/35"
               >
-                <div style={{ marginBottom: "0.8rem" }}>
-                  <Stars count={t.rating} />
-                </div>
-                <p style={cardText}>“{t.quote}”</p>
-                <div style={cardTitle}>{t.name}</div>
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#FFF1E6] text-[#FF7A00]">
+                  <i className="fas fa-location-dot" />
+                </span>
+                <p className="m-0 text-base font-black text-[#0B1C4D]">
+                  {area}
+                </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section style={sectionWhite}>
-        <h2 style={sectionHeading}>Frequently Asked Questions</h2>
-        <p style={sectionText}>Quick answers before you call or WhatsApp us.</p>
+      <section
+        id="about"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 sm:py-14"
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 rounded-[1.5rem] bg-[#F5F8FF] p-6 shadow-[0_16px_45px_rgba(11,28,77,0.06)] lg:grid-cols-[0.95fr_1.05fr] lg:p-8">
+          <div className="relative overflow-hidden rounded-[1.5rem] bg-white p-4 shadow-[0_18px_45px_rgba(11,28,77,0.08)]">
+            <img
+              src={aboutImg}
+              alt="Lintech internet, networking and technology solutions"
+              className="h-full min-h-[320px] w-full rounded-[1.2rem] object-cover"
+            />
+          </div>
 
-        <div style={faqWrap}>
-          {faqs.map((item, idx) => {
-            const isOpen = openFaq === idx;
-            return (
-              <div
-                key={item.q}
-                style={faqItem(isOpen)}
-                onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+          <div>
+            <p className={eyebrowClass}>About Lintech</p>
+            <h2 className={sectionTitleClass}>
+              Connecting Homes, Businesses and Modern Workflows
+            </h2>
+
+            <p className={sectionTextClass}>
+              Lintech is an internet, networking, and technology solutions
+              company serving Nairobi and Kiambu areas with reliable
+              connectivity, professional installations, and smart digital
+              services.
+            </p>
+
+            <p className={sectionTextClass}>
+              We started with connectivity, but our services have grown beyond
+              internet alone. Today, Lintech supports customers with complete
+              networking solutions and digital services such as website
+              development, software development, cybersecurity, and AI
+              automation.
+            </p>
+
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {[
+                "Reliable internet solutions",
+                "Clean WiFi, CCTV and network installation",
+                "Fast and friendly customer support",
+                "Digital services for modern organizations",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-[0_8px_24px_rgba(11,28,77,0.04)]"
+                >
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#FFF1E6] text-[#FF7A00]">
+                    <i className="fas fa-check" />
+                  </span>
+                  <p className="m-0 text-sm font-black text-[#0B1C4D]">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        className="relative z-10 scroll-mt-24 bg-white px-6 py-12 pb-16 sm:py-14 sm:pb-20"
+      >
+        <div className="mx-auto max-w-7xl rounded-[1.5rem] bg-[#0B1C4D] p-6 text-white shadow-[0_24px_70px_rgba(11,28,77,0.18)] lg:p-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF7A00] sm:text-[11px]">
+              Contact Lintech
+            </p>
+
+            <h2 className="text-2xl font-black leading-[1.12] tracking-[-0.03em] text-white sm:text-3xl lg:text-4xl">
+              Ready to request internet, networking or tech services?
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
+              Contact us for internet, WiFi installation, CCTV, network cabling,
+              websites, software development, cybersecurity, and AI automation
+              services across Nairobi and Kiambu areas.
+            </p>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="rounded-[1.2rem] bg-white/10 p-5 text-center">
+              <h3 className="mb-3 text-lg font-black text-white">
+                Internet Services
+              </h3>
+              <p className="mb-5 text-sm leading-6 text-white/70">
+                For fiber internet, WiFi installation, routers, and connectivity
+                support.
+              </p>
+              <a href={`tel:${internetPhone}`} className={primaryButtonClass}>
+                Call {internetPhone}
+              </a>
+            </div>
+
+            <div className="rounded-[1.2rem] bg-white/10 p-5 text-center">
+              <h3 className="mb-3 text-lg font-black text-white">
+                Tech Services
+              </h3>
+              <p className="mb-5 text-sm leading-6 text-white/70">
+                For websites, software systems, cybersecurity, and AI
+                automation.
+              </p>
+              <a
+                href={`tel:${techPhone}`}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/15"
               >
-                <div style={faqHeader}>
-                  <div style={faqQuestion}>{item.q}</div>
-                  <div style={faqIcon(isOpen)}>+</div>
-                </div>
+                Call {techPhone}
+              </a>
+            </div>
 
-                <div style={faqAnswerWrap(isOpen)}>
-                  <p style={faqAnswer}>{item.a}</p>
+            <div className="rounded-[1.2rem] bg-white/10 p-5 text-center">
+              <h3 className="mb-3 text-lg font-black text-white">
+                WhatsApp Support
+              </h3>
+              <p className="mb-5 text-sm leading-6 text-white/70">
+                Send your location, service needed, and nearest landmark.
+              </p>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#128C3A]"
+              >
+                Chat on WhatsApp
+                <i className="fab fa-whatsapp" />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-[1.2rem] bg-white p-5 text-[#0B1C4D]">
+            <h3 className="mb-5 text-center text-xl font-black">
+              What to Send for Fast Help
+            </h3>
+
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {detailsToSend.map((item) => (
+                <div key={item.label} className="text-center">
+                  <p className="text-xs font-black leading-5">{item.label}</p>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* FINAL CTA */}
-      <section style={finalCta}>
-        <h2 style={sectionHeading}>
-          Ready to Upgrade Your Internet & Technology Setup?
-        </h2>
-
-        <p style={finalText}>
-          Contact Lintech today for internet, WiFi, networking, CCTV, or digital
-          technology services.
-        </p>
-
-        <div style={buttonWrap}>
-          <a href={`tel:${internetPhone}`} style={orangeButton}>
-            <i className="fas fa-phone"></i> Internet: {internetPhone}
-          </a>
-
-          <a href={`tel:${techPhone}`} style={navyButton}>
-            <i className="fas fa-phone"></i> Tech: {techPhone}
-          </a>
-
-          <a
-            href={`https://wa.me/${whatsappNumber}`}
-            target="_blank"
-            rel="noreferrer"
-            style={greenButton}
-          >
-            <i className="fab fa-whatsapp"></i> WhatsApp
-          </a>
-        </div>
-
-        <p style={{ marginTop: "1.5rem", color: "#555" }}>
-          Available 7 days a week, 8:00 AM - 8:00 PM
-        </p>
-      </section>
-    </div>
+    </main>
   );
-}
-
-/* STYLES */
-const heroSection = {
-  padding: "4rem 0",
-  background:
-    "radial-gradient(1200px 500px at 10% 10%, rgba(245,124,0,0.18), transparent 60%), radial-gradient(900px 450px at 90% 0%, rgba(11,28,77,0.14), transparent 55%), linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%)",
 };
-
-const container = {
-  width: "min(1100px, 92%)",
-  margin: "0 auto",
-  textAlign: "center",
-};
-
-const heroCard = {
-  padding: "2.4rem",
-  borderRadius: "22px",
-  background: "rgba(255,255,255,0.92)",
-  boxShadow: "0 22px 50px rgba(11,28,77,0.1)",
-  border: "1px solid rgba(0,0,0,0.06)",
-  animation: "lintechFloat 5s ease-in-out infinite",
-};
-
-const badge = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.5rem",
-  padding: "0.4rem 0.8rem",
-  borderRadius: "999px",
-  background: "rgba(245,124,0,0.12)",
-  color: "#0b1c4d",
-  fontWeight: 700,
-  marginBottom: "1rem",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const heroTitle = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 800,
-  fontSize: "clamp(2.1rem, 4vw, 3.2rem)",
-  marginBottom: "1rem",
-  lineHeight: 1.1,
-  letterSpacing: "-0.02em",
-};
-
-const heroText = {
-  fontSize: "1.15rem",
-  color: "#555",
-  maxWidth: "820px",
-  margin: "0 auto 1.6rem",
-  lineHeight: 1.6,
-};
-
-const buttonWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "0.9rem",
-  flexWrap: "wrap",
-  alignItems: "center",
-};
-
-const orangeButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#ff7a00",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(245,124,0,0.25)",
-  fontWeight: 800,
-  transition: "transform 0.25s ease, box-shadow 0.25s ease",
-};
-
-const navyButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#0b1c4d",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(11,28,77,0.22)",
-  fontWeight: 800,
-  transition: "transform 0.25s ease, box-shadow 0.25s ease",
-};
-
-const greenButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#25D366",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(37,211,102,0.22)",
-  fontWeight: 800,
-  transition: "transform 0.25s ease, box-shadow 0.25s ease",
-};
-
-const smallGreenButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "0.45rem",
-  padding: "0.68rem 1rem",
-  fontSize: "0.92rem",
-  backgroundColor: "#25D366",
-  color: "#fff",
-  borderRadius: "10px",
-  textDecoration: "none",
-  boxShadow: "0 10px 22px rgba(37,211,102,0.2)",
-  fontWeight: 800,
-  whiteSpace: "nowrap",
-};
-
-const pillWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "0.6rem",
-  flexWrap: "wrap",
-  margin: "1.2rem 0 1.6rem",
-};
-
-const pillStyle = {
-  padding: "0.35rem 0.7rem",
-  borderRadius: "999px",
-  border: "1px solid rgba(0,0,0,0.08)",
-  background: "rgba(255,255,255,0.75)",
-  fontWeight: 700,
-  color: "#0b1c4d",
-  fontSize: "0.85rem",
-};
-
-const heroImage = {
-  width: "100%",
-  maxWidth: "900px",
-  borderRadius: "18px",
-  boxShadow: "0 20px 45px rgba(11,28,77,0.14)",
-  border: "1px solid rgba(0,0,0,0.06)",
-};
-
-const requestBox = {
-  maxWidth: "900px",
-  margin: "0 auto",
-  padding: "1.4rem",
-  borderRadius: "16px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  boxShadow: "0 18px 40px rgba(0,0,0,0.08)",
-  textAlign: "left",
-};
-
-const requestText = {
-  color: "#555",
-  marginBottom: "1.2rem",
-  lineHeight: 1.6,
-};
-
-const requestGrid = {
-  display: "flex",
-  gap: "0.8rem",
-  flexWrap: "wrap",
-  alignItems: "center",
-};
-
-const sectionWhite = {
-  padding: "4rem 0",
-  textAlign: "center",
-  backgroundColor: "#fff",
-};
-
-const sectionSoft = {
-  padding: "4rem 0",
-  textAlign: "center",
-  backgroundColor: "#f8f9fa",
-};
-
-const sectionHeading = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 800,
-  color: "#0b1c4d",
-  marginBottom: "1rem",
-};
-
-const sectionText = {
-  color: "#555",
-  maxWidth: "760px",
-  margin: "0 auto 3rem",
-  lineHeight: 1.6,
-};
-
-const cardFlex = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "2rem",
-  flexWrap: "wrap",
-};
-
-const hoverCard = (isHover, textAlign = "center") => ({
-  width: "320px",
-  padding: "2rem",
-  borderRadius: "18px",
-  backgroundColor: "#fff",
-  boxShadow: isHover
-    ? "0 24px 45px rgba(11,28,77,0.18)"
-    : "0 10px 24px rgba(0,0,0,0.08)",
-  transform: isHover
-    ? "translateY(-10px) scale(1.02)"
-    : "translateY(0) scale(1)",
-  transition: "transform 0.28s ease, box-shadow 0.28s ease",
-  cursor: "pointer",
-  textAlign,
-});
-
-const iconStyle = {
-  fontSize: "2rem",
-  color: "#ff7a00",
-  marginBottom: "1rem",
-};
-
-const cardTitle = {
-  fontFamily: "Poppins, sans-serif",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  marginBottom: "0.7rem",
-};
-
-const cardText = {
-  color: "#555",
-  lineHeight: 1.6,
-};
-
-const textLink = {
-  display: "inline-block",
-  marginTop: "1.2rem",
-  color: "#ff7a00",
-  fontWeight: 800,
-  textDecoration: "none",
-};
-
-const planHeader = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
-
-const popularTag = {
-  padding: "0.25rem 0.6rem",
-  borderRadius: "999px",
-  background: "rgba(255,122,0,0.12)",
-  color: "#ff7a00",
-  fontWeight: 800,
-  fontSize: "0.85rem",
-};
-
-const priceStyle = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 900,
-  fontSize: "1.8rem",
-  marginTop: "0.7rem",
-};
-
-const perkStyle = {
-  color: "#555",
-  marginBottom: "0.35rem",
-};
-
-const fullOrangeButton = {
-  display: "inline-block",
-  marginTop: "1.3rem",
-  width: "100%",
-  textAlign: "center",
-  padding: "0.75rem 1rem",
-  borderRadius: "12px",
-  backgroundColor: "#ff7a00",
-  color: "#fff",
-  fontWeight: 800,
-  textDecoration: "none",
-};
-
-const containerCenter = {
-  width: "min(1100px, 92%)",
-  margin: "0 auto",
-  textAlign: "center",
-};
-
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-  gap: "1rem",
-};
-
-const gridCard = {
-  padding: "1.2rem",
-  borderRadius: "14px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
-  color: "#ff7a00",
-  fontWeight: 800,
-};
-
-const techCard = {
-  padding: "1.2rem",
-  borderRadius: "14px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
-  textAlign: "left",
-};
-
-const routerBox = {
-  maxWidth: "950px",
-  margin: "0 auto",
-  padding: "1.6rem",
-  borderRadius: "18px",
-  background: "rgba(255,255,255,0.95)",
-  border: "1px solid rgba(0,0,0,0.06)",
-  boxShadow: "0 18px 40px rgba(0,0,0,0.08)",
-  textAlign: "center",
-};
-
-const routerImage = {
-  width: "100%",
-  maxWidth: "520px",
-  borderRadius: "16px",
-  boxShadow: "0 16px 32px rgba(0,0,0,0.14)",
-  marginBottom: "1.4rem",
-  display: "block",
-  marginLeft: "auto",
-  marginRight: "auto",
-};
-
-const stepCircle = {
-  width: "70px",
-  height: "70px",
-  lineHeight: "70px",
-  borderRadius: "50%",
-  backgroundColor: "#0b1c4d",
-  color: "#ff7a00",
-  fontSize: "2.5rem",
-  fontWeight: "700",
-  margin: "0 auto 15px",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const areaWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "0.7rem",
-  flexWrap: "wrap",
-};
-
-const areaPill = {
-  padding: "0.55rem 0.9rem",
-  borderRadius: "999px",
-  background: "rgba(245,124,0,0.12)",
-  color: "#0b1c4d",
-  fontWeight: 800,
-};
-
-const faqWrap = {
-  width: "min(900px, 92%)",
-  margin: "0 auto",
-  textAlign: "left",
-};
-
-const faqItem = (isOpen) => ({
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.08)",
-  borderRadius: "14px",
-  padding: "1.1rem 1.2rem",
-  marginBottom: "0.9rem",
-  boxShadow: isOpen
-    ? "0 18px 35px rgba(0,0,0,0.08)"
-    : "0 8px 18px rgba(0,0,0,0.05)",
-  transition: "all 0.25s ease",
-  cursor: "pointer",
-});
-
-const faqHeader = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: "1rem",
-};
-
-const faqQuestion = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 800,
-  color: "#0b1c4d",
-  fontSize: "1.05rem",
-};
-
-const faqIcon = (isOpen) => ({
-  width: "36px",
-  height: "36px",
-  borderRadius: "50%",
-  display: "grid",
-  placeItems: "center",
-  background: "rgba(245,124,0,0.12)",
-  color: "#ff7a00",
-  fontWeight: 900,
-  flex: "0 0 auto",
-  transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-  transition: "transform 0.2s ease",
-});
-
-const faqAnswerWrap = (isOpen) => ({
-  maxHeight: isOpen ? "220px" : "0px",
-  overflow: "hidden",
-  transition: "max-height 0.25s ease",
-});
-
-const faqAnswer = {
-  color: "#555",
-  lineHeight: 1.7,
-  marginTop: "0.8rem",
-  marginBottom: 0,
-};
-
-const finalCta = {
-  padding: "4rem 0",
-  textAlign: "center",
-  backgroundColor: "#fff",
-};
-
-const finalText = {
-  fontSize: "1.2rem",
-  color: "#555",
-  marginBottom: "2rem",
-};
-
-const infoBox = {
-  flex: "1 1 220px",
-  padding: "0.9rem",
-  borderRadius: "14px",
-  background: "#f8f9fa",
-  border: "1px solid rgba(0,0,0,0.05)",
-};
-
-const infoTitle = {
-  fontWeight: 800,
-  color: "#0b1c4d",
-};
-
-const smallHeading = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 800,
-  color: "#0b1c4d",
-  marginBottom: "0.6rem",
-};
-
-const orangeServiceHeading = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 800,
-  color: "#ff7a00",
-  marginBottom: "0.6rem",
-};
-
-const cssAnimations = `
-  @keyframes lintechFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-  }
-
-  @keyframes lintechBlink {
-    0% { transform: translateY(0) scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
-    70% { transform: translateY(-3px) scale(1.04); box-shadow: 0 0 0 16px rgba(37,211,102,0); }
-    100% { transform: translateY(0) scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-  }
-
-  .floating-whatsapp {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    min-width: 138px;
-    height: 54px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: #25D366;
-    color: #fff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    font-size: 1rem;
-    font-weight: 800;
-    text-decoration: none;
-    z-index: 9999;
-    animation: lintechBlink 1.8s infinite;
-    box-shadow: 0 12px 28px rgba(37,211,102,0.35);
-    border: 2px solid #fff;
-  }
-
-  .floating-whatsapp i {
-    font-size: 1.65rem;
-  }
-
-  .floating-whatsapp:hover {
-    background: #20bd5a;
-    transform: translateY(-2px);
-  }
-
-  .floating-whatsapp-text {
-    font-family: Poppins, sans-serif;
-  }
-
-  @media (max-width: 600px) {
-    .floating-whatsapp {
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      padding: 0;
-      border-radius: 50%;
-    }
-
-    .floating-whatsapp-text {
-      display: none;
-    }
-  }
-`;
 
 export default Home;

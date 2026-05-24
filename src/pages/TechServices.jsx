@@ -1,11 +1,5 @@
-import { useState } from "react";
-
 function TechServices() {
-  const [hoveredService, setHoveredService] = useState(null);
-  const [hoveredStep, setHoveredStep] = useState(null);
-
   const techPhone = "0714660729";
-  const whatsappNumber = "254717371134";
 
   const services = [
     {
@@ -36,127 +30,110 @@ function TechServices() {
   ];
 
   const steps = [
-    {
-      step: 1,
-      title: "Consultation",
-      text: "We listen to your business needs and understand the problem you want to solve.",
-    },
-    {
-      step: 2,
-      title: "Planning",
-      text: "We recommend the best digital solution, features, budget direction, and delivery approach.",
-    },
-    {
-      step: 3,
-      title: "Development",
-      text: "We design, build, configure, test, and prepare your solution for use.",
-    },
-    {
-      step: 4,
-      title: "Support",
-      text: "We provide guidance, updates, improvements, and support after delivery.",
-    },
+    [
+      "01",
+      "Consultation",
+      "We listen to your business needs and understand the problem you want to solve.",
+    ],
+    [
+      "02",
+      "Planning",
+      "We recommend the best digital solution, features, budget direction, and delivery approach.",
+    ],
+    [
+      "03",
+      "Development",
+      "We design, build, configure, test, and prepare your solution for use.",
+    ],
+    [
+      "04",
+      "Support",
+      "We provide guidance, updates, improvements, and support after delivery.",
+    ],
   ];
 
-  return (
-    <div>
-      {/* HERO */}
-      <section
-        style={{
-          padding: "4.5rem 0",
-          background:
-            "radial-gradient(900px 450px at 10% 10%, rgba(245,124,0,0.18), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%)",
-          textAlign: "center",
-        }}
-      >
-        <div style={container}>
-          <div style={badge}>
-            <span>💻</span> Digital & Technology Services
-          </div>
+  const eyebrowClass =
+    "mb-3 inline-flex rounded-full border border-[#FF7A00]/20 bg-[#FF7A00]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF7A00] sm:text-[11px]";
 
-          <h1 style={heroTitle}>
-            <span style={orangeText}>Smart Digital</span>{" "}
-            <span style={blueText}>& Technology Services</span>
+  const sectionTitleClass =
+    "text-2xl font-black leading-[1.12] tracking-[-0.03em] text-[#0B1C4D] sm:text-3xl lg:text-4xl";
+
+  const sectionTextClass = "mt-4 text-sm leading-7 text-slate-600 sm:text-base";
+
+  const cardClass =
+    "rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(11,28,77,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_18px_45px_rgba(11,28,77,0.08)]";
+
+  const primaryButtonClass =
+    "inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7A00] px-6 py-3 text-sm font-black text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-[#E86D00]";
+
+  return (
+    <main className="relative overflow-hidden bg-white text-slate-700">
+      <section className="relative z-10 bg-[linear-gradient(135deg,#ffffff_0%,#fbfdff_50%,#eef4ff_100%)] px-6 py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7A00] sm:text-[11px]">
+            Digital & Technology Services
+          </p>
+
+          <h1 className="mx-auto mb-4 max-w-3xl text-3xl font-black leading-[1.08] tracking-[-0.035em] text-[#0B1C4D] sm:text-4xl lg:text-5xl">
+            Smart Digital{" "}
+            <span className="text-[#FF7A00]">& Technology Services</span>
           </h1>
 
-          <p style={heroText}>
+          <p className="mx-auto mb-7 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
             Lintech helps businesses grow with professional websites, custom
             software systems, cybersecurity solutions, and AI automation
             services.
           </p>
 
-          <div style={buttonWrap}>
-            <a href={`tel:${techPhone}`} style={orangeButton}>
-              <i className="fas fa-phone"></i> Call {techPhone}
-            </a>
+          <a href={`tel:${techPhone}`} className={primaryButtonClass}>
+            Call {techPhone}
+            <i className="fas fa-phone" />
+          </a>
+        </div>
+      </section>
 
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp Us
-            </a>
+      <section className="relative z-10 bg-white px-6 py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-9 max-w-3xl text-center">
+            <p className={eyebrowClass}>Our tech services</p>
+            <h2 className={sectionTitleClass}>Practical Digital Solutions</h2>
+            <p className={sectionTextClass}>
+              We build solutions for businesses that want to look professional,
+              operate better, and use technology more effectively.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <div key={service.title} className={cardClass}>
+                <h3 className="mb-3 text-xl font-black text-[#0B1C4D]">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-7 text-slate-500">
+                  {service.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#fff" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={blueText}>Our TechServices</span>
-          </h2>
-
-          <p style={sectionText}>
-            We build practical digital solutions for businesses that want to
-            look professional, operate better, and use technology more
-            effectively.
-          </p>
-
-          <div style={gridStyle}>
-            {services.map((service, i) => {
-              const isHover = hoveredService === i;
-
-              return (
-                <div
-                  key={service.title}
-                  onMouseEnter={() => setHoveredService(i)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  style={{
-                    ...cardStyle,
-                    transform: isHover ? "translateY(-8px)" : "translateY(0)",
-                    boxShadow: isHover
-                      ? "0 20px 35px rgba(0,0,0,0.16)"
-                      : "0 8px 18px rgba(0,0,0,0.07)",
-                  }}
-                >
-                  <h3 style={orangeCardTitle}>{service.title}</h3>
-                  <p style={cardText}>{service.text}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* WHO WE HELP */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#f8f9fa" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={blueText}>Who We Help</span>
-          </h2>
-
-          <p style={sectionText}>
+      <section className="relative z-10 bg-white px-6 py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl rounded-[1.5rem] bg-[#F5F8FF] p-6 text-center shadow-[0_16px_45px_rgba(11,28,77,0.06)] lg:p-8">
+          <p className={eyebrowClass}>Who we help</p>
+          <h2 className={sectionTitleClass}>Built for Growing Businesses</h2>
+          <p className={sectionTextClass}>
             Our digital solutions are ideal for businesses and organizations
             that want better visibility, smoother operations, and smarter
             workflows.
           </p>
 
-          <div style={pillWrap}>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             {clients.map((client) => (
-              <span key={client} style={pillStyle}>
+              <span
+                key={client}
+                className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-[#0B1C4D] shadow-[0_8px_24px_rgba(11,28,77,0.04)]"
+              >
                 {client}
               </span>
             ))}
@@ -164,274 +141,34 @@ function TechServices() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#fff" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={blueText}>How We Work</span>
-          </h2>
-
-          <p style={sectionText}>
-            We follow a simple process that helps you move from idea to working
-            solution without confusion.
-          </p>
-
-          <div style={gridStyle}>
-            {steps.map((item, i) => {
-              const isHover = hoveredStep === i;
-
-              return (
-                <div
-                  key={item.step}
-                  onMouseEnter={() => setHoveredStep(i)}
-                  onMouseLeave={() => setHoveredStep(null)}
-                  style={{
-                    ...cardStyle,
-                    textAlign: "center",
-                    transform: isHover ? "translateY(-8px)" : "translateY(0)",
-                    boxShadow: isHover
-                      ? "0 20px 35px rgba(0,0,0,0.16)"
-                      : "0 8px 18px rgba(0,0,0,0.07)",
-                  }}
-                >
-                  <div style={stepCircle}>{item.step}</div>
-                  <h3 style={orangeCardTitle}>{item.title}</h3>
-                  <p style={cardText}>{item.text}</p>
-                </div>
-              );
-            })}
+      <section className="relative z-10 bg-white px-6 py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-9 max-w-3xl text-center">
+            <p className={eyebrowClass}>How we work</p>
+            <h2 className={sectionTitleClass}>From Idea to Working Solution</h2>
+            <p className={sectionTextClass}>
+              We follow a simple process that helps you move from idea to
+              working solution without confusion.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* WHY CHOOSE */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#f8f9fa" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={orangeText}>Why Choose</span>{" "}
-            <span style={blueText}>Lintech?</span>
-          </h2>
-
-          <div style={benefitGrid}>
-            {[
-              "Business-focused solutions",
-              "Modern websites and systems",
-              "Secure digital setup",
-              "AI-powered productivity",
-              "Ongoing support",
-              "Nairobi business experience",
-            ].map((item) => (
-              <div key={item} style={benefitCard}>
-                <span style={{ color: "#ff7a00", fontWeight: 900 }}>✓</span>{" "}
-                {item}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {steps.map(([step, title, text]) => (
+              <div key={step} className={cardClass}>
+                <span className="mb-4 block text-3xl font-black text-[#0B1C4D]/10">
+                  {step}
+                </span>
+                <h3 className="mb-3 text-xl font-black text-[#0B1C4D]">
+                  {title}
+                </h3>
+                <p className="text-sm leading-7 text-slate-500">{text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section style={{ padding: "4rem 0", textAlign: "center" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={blueText}>
-              Need a Website, Software, Cybersecurity or AI Automation Services?
-            </span>
-          </h2>
-
-          <p style={sectionText}>
-            Contact Lintech today and let us help you build a practical digital
-            solution for your business.
-          </p>
-
-          <div style={buttonWrap}>
-            <a href={`tel:${techPhone}`} style={orangeButton}>
-              <i className="fas fa-phone"></i> Call Now
-            </a>
-
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }
-
-/* STYLES */
-const container = {
-  width: "min(1100px, 92%)",
-  margin: "0 auto",
-  textAlign: "center",
-};
-
-const badge = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.5rem",
-  padding: "0.45rem 0.85rem",
-  borderRadius: "999px",
-  background: "rgba(245,124,0,0.12)",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  marginBottom: "1rem",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const heroTitle = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 900,
-  fontSize: "clamp(2.1rem, 4vw, 3.3rem)",
-  lineHeight: 1.1,
-  maxWidth: "900px",
-  margin: "0 auto 1rem",
-};
-
-const orangeText = {
-  color: "#ff7a00",
-};
-
-const blueText = {
-  color: "#0b1c4d",
-};
-
-const heroText = {
-  fontSize: "1.15rem",
-  color: "#555",
-  maxWidth: "780px",
-  margin: "0 auto 1.8rem",
-  lineHeight: 1.7,
-};
-
-const buttonWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "1rem",
-  flexWrap: "wrap",
-};
-
-const orangeButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#ff7a00",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(245,124,0,0.25)",
-  fontWeight: 800,
-};
-
-const greenButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#25D366",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(37,211,102,0.22)",
-  fontWeight: 800,
-};
-
-const sectionHeading = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 900,
-  marginBottom: "1rem",
-};
-
-const sectionText = {
-  color: "#555",
-  maxWidth: "760px",
-  margin: "0 auto 3rem",
-  lineHeight: 1.7,
-  fontSize: "1rem",
-};
-
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-  gap: "1.2rem",
-};
-
-const cardStyle = {
-  padding: "1.7rem",
-  borderRadius: "16px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  transition: "all 0.3s ease",
-  textAlign: "left",
-};
-
-const orangeCardTitle = {
-  fontFamily: "Poppins, sans-serif",
-  color: "#ff7a00",
-  fontWeight: 900,
-  fontSize: "1.15rem",
-  marginBottom: "0.7rem",
-};
-
-const cardText = {
-  color: "#555",
-  lineHeight: 1.65,
-  margin: 0,
-};
-
-const pillWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "0.8rem",
-  flexWrap: "wrap",
-};
-
-const pillStyle = {
-  padding: "0.7rem 1rem",
-  borderRadius: "999px",
-  background: "#fff",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
-  border: "1px solid rgba(0,0,0,0.06)",
-};
-
-const stepCircle = {
-  width: "64px",
-  height: "64px",
-  borderRadius: "50%",
-  background: "#0b1c4d",
-  color: "#ff7a00",
-  display: "grid",
-  placeItems: "center",
-  fontSize: "1.8rem",
-  fontWeight: 900,
-  margin: "0 auto 1rem",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const benefitGrid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-  gap: "1rem",
-};
-
-const benefitCard = {
-  padding: "1rem",
-  borderRadius: "14px",
-  background: "#fff",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
-  border: "1px solid rgba(0,0,0,0.06)",
-};
 
 export default TechServices;

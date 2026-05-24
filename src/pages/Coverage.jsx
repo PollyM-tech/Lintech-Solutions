@@ -1,12 +1,14 @@
-import { useState } from "react";
+import whatsappIcon from "../assets/whatsapp.png";
 
 function Coverage() {
-  const [hoveredArea, setHoveredArea] = useState(null);
-  const [hoveredStep, setHoveredStep] = useState(null);
-
-  const internetPhone = "0717371134";
-  const techPhone = "0714660729";
   const whatsappNumber = "254717371134";
+
+  const whatsappMessage =
+    "Hello Lintech Telecom, I would like to confirm coverage in my area.";
+
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage,
+  )}`;
 
   const areas = [
     "Kahawa Sukari",
@@ -31,42 +33,92 @@ function Coverage() {
 
   const steps = [
     {
-      step: 1,
+      step: "01",
+      icon: "fa-location-dot",
       title: "Share Location",
-      text: "Send your estate, building, road, or nearest landmark through call or WhatsApp.",
+      text: "Send your estate, building, road, or nearest landmark through our contact channels.",
     },
     {
-      step: 2,
+      step: "02",
+      icon: "fa-circle-check",
       title: "Confirm Availability",
       text: "We check whether Lintech services are available in your exact location.",
     },
     {
-      step: 3,
+      step: "03",
+      icon: "fa-lightbulb",
       title: "Recommend Solution",
       text: "We advise the best internet, WiFi, CCTV, networking, or tech service option.",
     },
     {
-      step: 4,
+      step: "04",
+      icon: "fa-calendar-check",
       title: "Schedule Service",
       text: "Once confirmed, we plan installation, setup, or service delivery at your location.",
     },
   ];
 
-  return (
-    <div>
-      {/* HERO */}
-      <section style={heroSection}>
-        <div style={container}>
-          <div style={badge}>
-            <span>📍</span> Coverage Areas
-          </div>
+  const heroEyebrowClass =
+    "mb-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7A00] sm:text-[11px]";
 
-          <h1 style={heroTitle}>
-            <span style={orangeText}>Internet & Tech </span>{" "}
-            <span style={blueText}>Service Coverage</span>
+  const heroTitleClass =
+    "mx-auto mb-5 max-w-3xl text-3xl font-black leading-[1.08] tracking-[-0.035em] text-[#0B1C4D] sm:text-4xl lg:text-5xl";
+
+  const eyebrowClass =
+    "mb-3 inline-flex rounded-full border border-[#FF7A00]/20 bg-[#FF7A00]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF7A00] sm:text-[11px]";
+
+  const sectionHeaderClass = "mx-auto mb-9 max-w-3xl text-center";
+
+  const sectionTitleClass =
+    "text-2xl font-black leading-[1.12] tracking-[-0.03em] text-[#0B1C4D] sm:text-3xl lg:text-4xl";
+
+  const sectionTextClass = "mt-4 text-base leading-8 text-slate-600 sm:text-lg";
+
+  const primaryButtonClass =
+    "inline-flex items-center justify-center gap-2 rounded-[1.1rem] bg-[#FF7A00] px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-[#E86D00] hover:shadow-xl hover:shadow-orange-500/25 sm:px-7 sm:py-4";
+
+  const secondaryButtonClass =
+    "inline-flex items-center justify-center gap-2 rounded-[1.1rem] border border-[#0B1C4D]/20 bg-white px-6 py-3.5 text-sm font-black text-[#0B1C4D] shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF7A00]/45 hover:text-[#FF7A00] hover:shadow-xl hover:shadow-orange-500/10 sm:px-7 sm:py-4";
+
+  const cardClass =
+    "group rounded-[1.75rem] border border-slate-200/90 bg-white p-6 shadow-[0_16px_45px_rgba(11,28,77,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FF7A00]/35 hover:shadow-[0_22px_60px_rgba(255,122,0,0.12)] sm:p-7";
+
+  const iconBoxClass =
+    "mb-5 grid h-14 w-14 place-items-center rounded-[1.15rem] bg-[#FF7A00]/10 text-2xl text-[#FF7A00] transition group-hover:bg-[#FF7A00] group-hover:text-white";
+
+  return (
+    <main className="relative overflow-hidden bg-white font-[Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-slate-700 antialiased">
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.022] [background-image:linear-gradient(#0B1C4D_1px,transparent_1px),linear-gradient(90deg,#0B1C4D_1px,transparent_1px)] [background-size:72px_72px]" />
+
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with Lintech Telecom on WhatsApp"
+        className="fixed bottom-6 right-6 z-[9999] grid h-16 w-16 place-items-center rounded-full bg-white p-1.5 shadow-[0_18px_45px_rgba(37,211,102,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+      >
+        <img
+          src={whatsappIcon}
+          alt="WhatsApp"
+          className="h-full w-full object-contain"
+        />
+      </a>
+
+      {/* Hero */}
+      <section className="relative z-10 overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(255,122,0,0.11),transparent_30%),linear-gradient(135deg,#ffffff_0%,#fbfdff_50%,#eef4ff_100%)] px-6 pb-12 pt-10 sm:pt-12 lg:pb-14 lg:pt-14">
+        <div className="pointer-events-none absolute -left-40 top-28 h-96 w-96 rounded-full bg-[#0B1C4D]/10 blur-3xl" />
+        <div className="pointer-events-none absolute right-0 top-20 h-[520px] w-[520px] rounded-full bg-[#FF7A00]/10 blur-3xl" />
+
+        <div className="mx-auto max-w-7xl text-center">
+          <p className={heroEyebrowClass}>Coverage Areas</p>
+
+          <h1 className={heroTitleClass}>
+            Internet & Tech
+            <br />
+            <span className="text-[#FF7A00]">Service Coverage</span>
           </h1>
 
-          <p style={heroText}>
+          <p className="mx-auto mb-8 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
             Lintech provides internet, WiFi installation, CCTV, and network
             cabling across selected areas in Nairobi and Kiambu counties. Our
             tech services, including websites, software development,
@@ -74,83 +126,73 @@ function Coverage() {
             worldwide.
           </p>
 
-          <div style={buttonWrap}>
-            <a href={`tel:${internetPhone}`} style={orangeButton}>
-              <i className="fas fa-phone"></i> Internet: {internetPhone}
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="#areas" className={primaryButtonClass}>
+              View Coverage Areas
+              <i className="fas fa-arrow-down" />
             </a>
 
-            <a href={`tel:${techPhone}`} style={navyButton}>
-              <i className="fas fa-laptop-code"></i> Tech: {techPhone}
-            </a>
-
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp Us
+            <a href="/contact" className={secondaryButtonClass}>
+              Confirm My Location
+              <i className="fas fa-location-dot text-[#FF7A00]" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* AREAS */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#fff" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={orangeText}>Main</span>{" "}
-            <span style={blueText}>Coverage Areas</span>
-          </h2>
+      {/* Areas */}
+      <section
+        id="areas"
+        className="relative z-10 bg-white px-6 py-14 sm:py-16"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>Main coverage areas</p>
+            <h2 className={sectionTitleClass}>Areas We Currently Serve</h2>
+            <p className={sectionTextClass}>
+              These are some of the key areas Lintech serves. If your exact
+              estate or building is not listed, contact us and we will confirm
+              availability.
+            </p>
+          </div>
 
-          <p style={sectionText}>
-            These are some of the key areas Lintech serves. If your exact estate
-            or building is not listed, contact us and we will confirm
-            availability.
-          </p>
-
-          <div style={gridStyle}>
-            {areas.map((area, i) => {
-              const isHover = hoveredArea === i;
-
-              return (
-                <div
-                  key={area}
-                  onMouseEnter={() => setHoveredArea(i)}
-                  onMouseLeave={() => setHoveredArea(null)}
-                  style={{
-                    ...areaCard,
-                    transform: isHover ? "translateY(-8px)" : "translateY(0)",
-                    boxShadow: isHover
-                      ? "0 20px 35px rgba(0,0,0,0.16)"
-                      : "0 8px 18px rgba(0,0,0,0.07)",
-                  }}
-                >
-                  <span style={{ color: "#ff7a00", fontWeight: 900 }}>📍</span>{" "}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {areas.map((area) => (
+              <div
+                key={area}
+                className="group flex items-center gap-4 rounded-[1.4rem] border border-slate-200 bg-white p-5 shadow-[0_14px_40px_rgba(11,28,77,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#FF7A00]/35 hover:shadow-[0_20px_50px_rgba(255,122,0,0.1)]"
+              >
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#FFF1E6] text-[#FF7A00] transition group-hover:bg-[#FF7A00] group-hover:text-white">
+                  <i className="fas fa-location-dot" />
+                </span>
+                <p className="m-0 text-base font-black text-[#0B1C4D]">
                   {area}
-                </div>
-              );
-            })}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES AVAILABLE */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#f8f9fa" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={orangeText}>Services Available</span>{" "}
-            <span style={blueText}>by Area</span>
-          </h2>
+      {/* Services Available */}
+      <section className="relative z-10 bg-white px-6 py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#F5F8FF] p-6 shadow-[0_20px_60px_rgba(11,28,77,0.07)] lg:p-8">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>Available services</p>
+            <h2 className={sectionTitleClass}>Services Available by Area</h2>
+            <p className={sectionTextClass}>
+              Depending on your exact location, Lintech can provide internet,
+              networking, security installation, and technology support
+              services.
+            </p>
+          </div>
 
-          <p style={sectionText}>
-            Depending on your exact location, Lintech can provide internet,
-            networking, security installation, and technology support services.
-          </p>
-
-          <div style={pillWrap}>
+          <div className="flex flex-wrap justify-center gap-3">
             {services.map((service) => (
-              <span key={service} style={pillStyle}>
+              <span
+                key={service}
+                className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-black text-[#0B1C4D] shadow-[0_10px_30px_rgba(11,28,77,0.05)] transition hover:border-[#FF7A00]/35 hover:text-[#FF7A00]"
+              >
                 {service}
               </span>
             ))}
@@ -158,305 +200,97 @@ function Coverage() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#fff" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={orangeText}>How to Check</span>{" "}
-            <span style={blueText}>Coverage</span>
-          </h2>
+      {/* Process */}
+      <section className="relative z-10 bg-white px-6 py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className={sectionHeaderClass}>
+            <p className={eyebrowClass}>How to check coverage</p>
+            <h2 className={sectionTitleClass}>
+              Coverage Confirmation Is Quick
+            </h2>
+            <p className={sectionTextClass}>
+              Share your location and our team will guide you on the available
+              services.
+            </p>
+          </div>
 
-          <p style={sectionText}>
-            Coverage confirmation is quick. Share your location and our team
-            will guide you on the available services.
-          </p>
-
-          <div style={gridStyle}>
-            {steps.map((item, i) => {
-              const isHover = hoveredStep === i;
-
-              return (
-                <div
-                  key={item.step}
-                  onMouseEnter={() => setHoveredStep(i)}
-                  onMouseLeave={() => setHoveredStep(null)}
-                  style={{
-                    ...cardStyle,
-                    textAlign: "center",
-                    transform: isHover ? "translateY(-8px)" : "translateY(0)",
-                    boxShadow: isHover
-                      ? "0 20px 35px rgba(0,0,0,0.16)"
-                      : "0 8px 18px rgba(0,0,0,0.07)",
-                  }}
-                >
-                  <div style={stepCircle}>{item.step}</div>
-                  <h3 style={orangeCardTitle}>{item.title}</h3>
-                  <p style={cardText}>{item.text}</p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {steps.map((item) => (
+              <div key={item.step} className={cardClass}>
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div className={iconBoxClass}>
+                    <i className={`fas ${item.icon}`} />
+                  </div>
+                  <span className="text-4xl font-black tracking-[-0.05em] text-[#0B1C4D]/10">
+                    {item.step}
+                  </span>
                 </div>
-              );
-            })}
+                <h3 className="mb-3 text-xl font-black tracking-[-0.025em] text-[#0B1C4D]">
+                  {item.title}
+                </h3>
+                <p className="leading-7 text-slate-500">{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* LOCATION NOTE */}
-      <section style={{ padding: "4rem 0", backgroundColor: "#f8f9fa" }}>
-        <div style={container}>
-          <div style={noteBox}>
-            <h2 style={sectionHeading}>
-              <span style={orangeText}>Not Sure If</span>{" "}
-              <span style={blueText}>We Cover Your Area?</span>
-            </h2>
+      {/* Location Note */}
+      <section className="relative z-10 bg-white px-6 py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#F5F8FF] p-6 text-center shadow-[0_20px_60px_rgba(11,28,77,0.07)] lg:p-10">
+          <p className={eyebrowClass}>Not sure if we cover your area?</p>
 
-            <p style={{ ...sectionText, marginBottom: "1.8rem" }}>
-              Send us your location, nearest landmark, estate name, or building
-              name through WhatsApp. We will confirm availability and recommend
-              the right service.
-            </p>
+          <h2 className="mx-auto max-w-3xl text-3xl font-black leading-[1.08] tracking-[-0.035em] text-[#0B1C4D] sm:text-4xl lg:text-5xl">
+            Send us your location and we will confirm availability.
+          </h2>
 
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
-            >
-              <i className="fab fa-whatsapp"></i> Confirm My Location
-            </a>
-          </div>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+            Share your nearest landmark, estate name, building name, or road. We
+            will confirm availability and recommend the right service.
+          </p>
+
+          <a href="/contact" className={`mt-8 ${primaryButtonClass}`}>
+            Contact Lintech
+            <i className="fas fa-arrow-right" />
+          </a>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "4rem 0", textAlign: "center" }}>
-        <div style={container}>
-          <h2 style={sectionHeading}>
-            <span style={orangeText}>Ready to Get</span>{" "}
-            <span style={blueText}>Connected?</span>
-          </h2>
-
-          <p style={sectionText}>
-            Call or WhatsApp Lintech today to confirm coverage and request
-            internet, WiFi, CCTV, networking, or tech services.
+      <section className="relative z-10 bg-white px-6 py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-[#0B1C4D] p-6 text-center text-white shadow-[0_24px_70px_rgba(11,28,77,0.18)] lg:p-10">
+          <p className="mb-3 inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF7A00] sm:text-[11px]">
+            Ready to get connected?
           </p>
 
-          <div style={buttonWrap}>
-            <a href={`tel:${internetPhone}`} style={orangeButton}>
-              <i className="fas fa-phone"></i> Internet Services
-            </a>
+          <h2 className="mx-auto max-w-3xl text-3xl font-black leading-[1.08] tracking-[-0.035em] text-white sm:text-4xl lg:text-5xl">
+            Confirm coverage and request internet, WiFi, CCTV, networking, or
+            tech services.
+          </h2>
 
-            <a href={`tel:${techPhone}`} style={navyButton}>
-              <i className="fas fa-phone"></i> Tech Services
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/70">
+            Lintech helps homes and businesses choose the right solution based
+            on their location, needs, and budget.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="/contact" className={primaryButtonClass}>
+              Request Service
+              <i className="fas fa-arrow-right" />
             </a>
 
             <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-              style={greenButton}
+              href="/internet"
+              className="inline-flex items-center justify-center gap-2 rounded-[1.1rem] border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 sm:px-7 sm:py-4"
             >
-              <i className="fab fa-whatsapp"></i> WhatsApp
+              View Internet Plans
+              <i className="fas fa-wifi text-[#FF7A00]" />
             </a>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
-
-/* STYLES */
-const heroSection = {
-  padding: "4.5rem 0",
-  background:
-    "radial-gradient(900px 450px at 10% 10%, rgba(245,124,0,0.18), transparent 60%), linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%)",
-  textAlign: "center",
-};
-
-const container = {
-  width: "min(1100px, 92%)",
-  margin: "0 auto",
-  textAlign: "center",
-};
-
-const badge = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.5rem",
-  padding: "0.45rem 0.85rem",
-  borderRadius: "999px",
-  background: "rgba(245,124,0,0.12)",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  marginBottom: "1rem",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const heroTitle = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 900,
-  fontSize: "clamp(2.1rem, 4vw, 3.3rem)",
-  lineHeight: 1.1,
-  maxWidth: "900px",
-  margin: "0 auto 1rem",
-};
-
-const orangeText = {
-  color: "#ff7a00",
-};
-
-const blueText = {
-  color: "#0b1c4d",
-};
-
-const heroText = {
-  fontSize: "1.15rem",
-  color: "#555",
-  maxWidth: "780px",
-  margin: "0 auto 1.8rem",
-  lineHeight: 1.7,
-};
-
-const buttonWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "1rem",
-  flexWrap: "wrap",
-};
-
-const orangeButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#ff7a00",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(245,124,0,0.25)",
-  fontWeight: 800,
-};
-
-const navyButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#0b1c4d",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(11,28,77,0.22)",
-  fontWeight: 800,
-};
-
-const greenButton = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "0.55rem",
-  padding: "0.85rem 1.4rem",
-  fontSize: "1.05rem",
-  backgroundColor: "#25D366",
-  color: "#fff",
-  borderRadius: "12px",
-  textDecoration: "none",
-  boxShadow: "0 14px 28px rgba(37,211,102,0.22)",
-  fontWeight: 800,
-};
-
-const sectionHeading = {
-  fontFamily: "Poppins, sans-serif",
-  fontWeight: 900,
-  marginBottom: "1rem",
-};
-
-const sectionText = {
-  color: "#555",
-  maxWidth: "760px",
-  margin: "0 auto 3rem",
-  lineHeight: 1.7,
-  fontSize: "1rem",
-};
-
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-  gap: "1.2rem",
-};
-
-const areaCard = {
-  padding: "1.3rem",
-  borderRadius: "16px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  transition: "all 0.3s ease",
-  color: "#0b1c4d",
-  fontWeight: 900,
-  fontFamily: "Poppins, sans-serif",
-};
-
-const cardStyle = {
-  padding: "1.7rem",
-  borderRadius: "16px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  transition: "all 0.3s ease",
-  textAlign: "left",
-};
-
-const orangeCardTitle = {
-  fontFamily: "Poppins, sans-serif",
-  color: "#ff7a00",
-  fontWeight: 900,
-  fontSize: "1.15rem",
-  marginBottom: "0.7rem",
-};
-
-const cardText = {
-  color: "#555",
-  lineHeight: 1.65,
-  margin: 0,
-};
-
-const pillWrap = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "0.8rem",
-  flexWrap: "wrap",
-};
-
-const pillStyle = {
-  padding: "0.7rem 1rem",
-  borderRadius: "999px",
-  background: "#fff",
-  color: "#0b1c4d",
-  fontWeight: 800,
-  boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
-  border: "1px solid rgba(0,0,0,0.06)",
-};
-
-const stepCircle = {
-  width: "64px",
-  height: "64px",
-  borderRadius: "50%",
-  background: "#0b1c4d",
-  color: "#ff7a00",
-  display: "grid",
-  placeItems: "center",
-  fontSize: "1.8rem",
-  fontWeight: 900,
-  margin: "0 auto 1rem",
-  fontFamily: "Poppins, sans-serif",
-};
-
-const noteBox = {
-  maxWidth: "850px",
-  margin: "0 auto",
-  padding: "2rem",
-  borderRadius: "20px",
-  background: "#fff",
-  border: "1px solid rgba(0,0,0,0.06)",
-  boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
-};
 
 export default Coverage;
