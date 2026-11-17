@@ -29,6 +29,8 @@ function Navbar() {
           <span className="grid h-12 w-12 place-items-center rounded-full bg-white p-1.5 shadow-[0_10px_28px_rgba(11,28,77,0.12)] ring-1 ring-slate-200">
             <img
               src={logo}
+              width="1024"
+              height="1024"
               alt="Lintech Telecom"
               className="h-full w-full object-contain"
             />

@@ -17,6 +17,8 @@ function Footer() {
               >
                 <img
                   src={logo}
+                  width="1024"
+                  height="1024"
                   alt="Lintech Telecom"
                   className="h-full w-full object-contain"
                 />

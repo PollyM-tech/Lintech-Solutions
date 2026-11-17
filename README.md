@@ -140,6 +140,17 @@ Vercel
 
 ### Google Search Console and SEO
 
+`npm run build` builds the client, renders the homepage with React on the build
+machine, and writes its content into `dist/index.html`. Deploy `dist/` as before.
+Visitors and crawlers receive the same complete HTML; React hydrates it to enable
+menus and animations. `npm run dev` continues to use client rendering. No server
+runtime is required. Add explicit prerender entries and sitemap URLs when adding
+new routes. Rebuild after changing page content.
+
+After building, run `npm run check:seo` to verify the generated HTML includes
+the main content, metadata, valid section links and assets, structured data,
+one Tag Manager container, and the unchanged Google verification file.
+
 Google Tag Manager container `GTM-K2VL5XDD` is installed once, directly after
 the opening `<head>` in `index.html`. Configure the Google Analytics tag inside
 this container and publish it in Tag Manager to activate Analytics. The previous

@@ -209,6 +209,10 @@ const Home = () => {
             <p className={heroEyebrowClass}>Welcome to Lintech</p>
 
             <h1 className={heroTitleClass}>
+              Internet, WiFi & CCTV in Nairobi & Kiambu
+            </h1>
+
+            <p className="mb-5 text-xl font-black text-[#0B1C4D] sm:text-2xl">
               Stay{" "}
               <span
                 className={`inline-block text-[#FF7A00] transition duration-200 ${
@@ -220,13 +224,14 @@ const Home = () => {
                 {rotatingWords[wordIndex]}
               </span>
               <br />
-              with Internet, CCTV, Networking & Digital Systems
-            </h1>
+              with Lintech Telecom
+            </p>
 
             <p className="mx-auto mb-7 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base lg:mx-0">
-              Lintech Telecom installs, troubleshoots, and supports internet,
-              WiFi, networking, CCTV, websites, software systems, cybersecurity,
-              and AI automation.
+              Lintech Telecom connects homes and businesses across Nairobi and
+              selected Kiambu areas. We install and support internet, WiFi,
+              networking, and CCTV, and build websites, software systems,
+              cybersecurity solutions, and AI automation.
             </p>
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
@@ -246,6 +251,8 @@ const Home = () => {
             <div className="relative overflow-hidden rounded-[2rem] bg-[#EEF4FF] p-4 shadow-[0_25px_70px_rgba(11,28,77,0.12)]">
               <img
                 src={heroImg}
+                width="800"
+                height="533"
                 alt="Lintech Telecom internet, networking, and digital systems"
                 fetchPriority="high"
                 className="relative z-10 w-full rounded-[1.6rem] object-cover"
@@ -392,6 +399,8 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-[1.5rem] bg-[#F5F8FF] p-4">
             <img
               src={routerProductImg}
+              width="1536"
+              height="1024"
               alt="WiFi router sold and configured by Lintech Telecom"
               loading="lazy"
               decoding="async"
@@ -491,6 +500,8 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-[1.5rem] bg-white p-4 shadow-[0_18px_45px_rgba(11,28,77,0.08)]">
             <img
               src={aboutImg}
+              width="1200"
+              height="800"
               alt="Lintech internet, networking and technology solutions"
               loading="lazy"
               decoding="async"
