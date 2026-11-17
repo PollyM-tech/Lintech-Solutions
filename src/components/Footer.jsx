@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/optimized/logo-128.webp";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ function Footer() {
           <div>
             <div className="mb-5 flex items-center gap-3">
               <a
-                href="#home"
+                href="/#home"
                 className="grid h-12 w-12 place-items-center rounded-full bg-white p-1.5"
               >
                 <img
@@ -53,20 +53,20 @@ function Footer() {
           <FooterColumn
             title="Quick Links"
             links={[
-              ["Home", "#home"],
-              ["Internet", "#internet"],
-              ["WiFi & Networking", "#wifi-networking"],
-              ["Tech Services", "#tech-services"],
+              ["Home", "/#home"],
+              ["Internet", "/#internet"],
+              ["WiFi & Networking", "/#wifi-networking"],
+              ["Tech Services", "/#tech-services"],
             ]}
           />
 
           <FooterColumn
             title="Company"
             links={[
-              ["Coverage", "#coverage"],
-              ["About", "#about"],
-              ["Contact", "#contact"],
-              ["Router Setup", "#router-setup"],
+              ["Coverage", "/#coverage"],
+              ["About", "/#about"],
+              ["Contact", "/#contact"],
+              ["Router Setup", "/#router-setup"],
             ]}
           />
 

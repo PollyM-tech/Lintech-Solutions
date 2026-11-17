@@ -2,9 +2,9 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import App from "./App.jsx";
 
-export function render() {
+export function render(path = "/") {
   return renderToString(
-    <StaticRouter location="/">
+    <StaticRouter location={path}>
       <App />
     </StaticRouter>,
   );

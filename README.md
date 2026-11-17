@@ -140,12 +140,13 @@ Vercel
 
 ### Google Search Console and SEO
 
-`npm run build` builds the client, renders the homepage with React on the build
-machine, and writes its content into `dist/index.html`. Deploy `dist/` as before.
+`npm run build` builds the client and renders the homepage and both service pages
+with React on the build machine. Deploy `dist/` as before.
 Visitors and crawlers receive the same complete HTML; React hydrates it to enable
 menus and animations. `npm run dev` continues to use client rendering. No server
-runtime is required. Add explicit prerender entries and sitemap URLs when adding
-new routes. Rebuild after changing page content.
+runtime is required. Service page content, routes, and metadata are defined in
+`src/data/service-pages.js`. The build generates their HTML and sitemap entries.
+Rebuild after changing page content.
 
 After building, run `npm run check:seo` to verify the generated HTML includes
 the main content, metadata, valid section links and assets, structured data,
@@ -167,8 +168,32 @@ Keep this public file permanently, including after verification succeeds.
 After deploying to Vercel, open the verification URL and confirm that it returns
 `google-site-verification: google70f4978ad4dafef2.html`, then click **Verify** in
 Google Search Console. Submit `https://lintechtelecom.com/sitemap.xml` in the
-Search Console Sitemaps section. The sitemap lists the site's single page;
-update it when adding new page routes.
+Search Console Sitemaps section. The sitemap lists the homepage, networking,
+and digital services pages.
+
+### Inquiries, reviews, and analytics
+
+The inquiry form opens WhatsApp with the selected service, location, and message;
+it does not submit to a server. Plan buttons include the selected plan in their
+WhatsApp message. Confirm plan speeds, billing periods, installation charges,
+router inclusion, and usage limits with the business before publishing new terms.
+
+`src/lib/contact.js` holds the Google Maps link. It currently searches for
+Lintech Telecom Kenya; replace `googleProfileUrl` with the listing's exact Share
+link when available. The site does not invent ratings or reproduce reviews.
+
+Clicks push these custom events into the existing Tag Manager data layer:
+`phone_click`, `whatsapp_click`, `plan_select`, `coverage_inquiry`,
+`service_inquiry`, and `google_profile_click`. Configure Custom Event triggers
+and GA4 Event tags in container `GTM-K2VL5XDD`, then preview and publish the
+container to send them to Analytics. Parameters include `source`, `plan`, or
+`service` as applicable. Location and message text are excluded from event data.
+
+Responsive WebP assets live in `src/assets/optimized/`. Original artwork is
+preserved. Navigation uses a single header offset in `src/index.css`, respects
+reduced motion, and closes on Escape, outside clicks, and focus leaving the menu.
+The floating WhatsApp shortcut hides while the contact section is visible so it
+does not overlap the inquiry form.
 
 Navigation IDs
 
