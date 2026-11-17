@@ -138,6 +138,27 @@ npm run preview
 Deployment 
 Vercel
 
+### Google Search Console and SEO
+
+Google Tag Manager container `GTM-K2VL5XDD` is installed once, directly after
+the opening `<head>` in `index.html`. Configure the Google Analytics tag inside
+this container and publish it in Tag Manager to activate Analytics. The previous
+`VITE_GA_MEASUREMENT_ID` configuration is no longer used; manage tracking through
+Tag Manager to avoid duplicate Analytics installations. After deploying the site,
+use Tag Assistant to check the container and configured tags. The HTML file
+verification method below remains available independently of Analytics.
+
+The Google verification file is kept at `public/google70f4978ad4dafef2.html`.
+Vite copies it unchanged into `dist/` during `npm run build`, making it available
+at `https://lintechtelecom.com/google70f4978ad4dafef2.html` after deployment.
+Keep this public file permanently, including after verification succeeds.
+
+After deploying to Vercel, open the verification URL and confirm that it returns
+`google-site-verification: google70f4978ad4dafef2.html`, then click **Verify** in
+Google Search Console. Submit `https://lintechtelecom.com/sitemap.xml` in the
+Search Console Sitemaps section. The sitemap lists the site's single page;
+update it when adding new page routes.
+
 Navigation IDs
 
 The website uses smooth scrolling with section IDs:

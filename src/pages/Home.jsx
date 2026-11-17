@@ -247,6 +247,7 @@ const Home = () => {
               <img
                 src={heroImg}
                 alt="Lintech Telecom internet, networking, and digital systems"
+                fetchPriority="high"
                 className="relative z-10 w-full rounded-[1.6rem] object-cover"
               />
             </div>
@@ -392,6 +393,8 @@ const Home = () => {
             <img
               src={routerProductImg}
               alt="WiFi router sold and configured by Lintech Telecom"
+              loading="lazy"
+              decoding="async"
               className="relative w-full rounded-[1.2rem] object-cover"
             />
           </div>
@@ -489,6 +492,8 @@ const Home = () => {
             <img
               src={aboutImg}
               alt="Lintech internet, networking and technology solutions"
+              loading="lazy"
+              decoding="async"
               className="h-full min-h-[320px] w-full rounded-[1.2rem] object-cover"
             />
           </div>
